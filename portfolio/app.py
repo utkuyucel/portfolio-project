@@ -12,5 +12,12 @@ def spa():
     return render_template("spa.html")
 
 
+@app.route("/volume_analyzer")
+def volume_analyzer():
+    return render_template("volume_analyzer.html")
+
+
+## 404 ekle
+
 if __name__ == "__main__":
     app.run(debug=True)

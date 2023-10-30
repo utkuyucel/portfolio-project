@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETL - Volume Analyzer</title>    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
+        <span class="arrow-icon">←</span>
+        Back to Main Page
+    </button>
+    
+    <section class="header py-4">
+        <div class="container">
+            <h1>ETL - Volume Analyzer</h1>
+            <div class="tags-section">
+                <span class="tag">Python</span>
+                <span class="tag">Statistical Analysis</span>
+                <span class="tag">ETL Processes</span>
+                <span class="tag">Data Visualization</span>
+                <span class="tag">Data Analysis</span>
+                <!-- Add more tags as needed -->
+            </div>
+        </div>        
+    </section>
+    
+    <div class="github-strip">
+        <div class="container">
+            <a href="https://github.com/utkuyucel/Analyzing_volume_data/blob/main/main.py" target="_blank">
+                <i class="fab fa-github"></i> View the Project on Github
+            </a>
+        </div>
+    </div>
+
+    <!-- Inside the project-->
+    <section class="container my-5">
+        <h3><b>ETL - Volume Analyzer</b></h3>
+        <p>
+            This project represents a comprehensive ETL (Extract, Transform, Load) pipeline, crafted in Python, intended for the analysis, clustering, and regression computation of diverse datasets. For the sake of data security and confidentiality, certain datasets, specifically Android and iOS user data, have not been disclosed.
+        </p>
+        <p>
+            <strong>Input Data vs Output Data of The Pipeline:</strong>
+            <p>After doing feature engineering, here's the output data of the project.</p>
+        </p>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/nput_output_data.png') }}" alt="Input-data Output" class="img-fluid">
+        <br>
+        <br>
+        <p>
+            <strong>The ETL pipeline is structured around five primary classes:</strong>
+        </p>
+        <ul>
+            <li><b>DataExtractor:</b> Equipped with various methods, this class is responsible for extracting data from external sources.</li>
+            <br>
+            <script src="https://gist.github.com/utkuyucel/e6654fbbcf0f726b4b0db0aae16e423c.js"></script>
+
+            <hr>
+
+            <li><b>DataTransformer:</b> This class contains a suite of methods designed to transform the data procured by the DataExtractor.</li>
+            <br>
+            <script src="https://gist.github.com/utkuyucel/b19ab6c578b0db7c273d3deee4b7d3e1.js"></script>
+            
+            <hr>
+
+            <li><b>DataLoader:</b> This class encompasses several methods for efficiently loading the provided data.</li>
+            <br>
+            <script src="https://gist.github.com/utkuyucel/ef193d255b06e27c125db04e1caa51e3.js"></script>
+
+            <hr>
+
+            <li><b>DataAnalyzer:</b> Embedded with numerous methods, it facilitates Exploratory Data Analysis (EDA) on the available data.</li>
+            <br>
+            <script src="https://gist.github.com/utkuyucel/e72c946065c3eacaf4c4e7140a1e7fcd.js"></script>
+
+            <hr>
+            
+            <li><b>DataValidator:</b> With several dedicated methods, it ensures data validation. Data will not proceed to analysis unless authenticated by this class.</li>
+            <br>
+            <script src="https://gist.github.com/utkuyucel/ae6e5aa823efd7c3994f39bcf3bb49d6.js"></script>
+
+            <hr>
+        </ul>
+        <p>
+            Purposefully designed, this project aims to address pivotal questions, such as:
+        </p>
+        <ul>
+            <li>Which weekdays witness higher trading volumes?</li>
+            <li>Do trading patterns differ between weekends and weekdays?</li>
+            <li>Are there specific months that experience heightened activity?</li>
+            <li>How is trading volume distributed across various weekdays and months?</li>
+            <li>Which data clusters dominate specific months?</li>
+            <li>Are there clusters that are notably more frequent on certain days?</li>
+            <li>What is the prevailing direction of the exchange's volume trend?</li>
+        </ul>
+
+
+        <h5><b>Full Code:</b></h5>
+        <hb>
+        <script src="https://gist.github.com/utkuyucel/017d91a6b0c5de258022485d75fa3427.js"></script>
+
+        <br>
+        <h4><b>Outputs:</b></h4>
+        <br>
+
+        <h5><b>Volume Over Time:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vot.png') }}" alt="Vot Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Volume with Trend Over Time:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vtot.png') }}" alt="Vtot Output" class="img-fluid">
+        <br>
+        <br>
+        
+        <h5><b>Volume Distribution:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vd.png') }}" alt="Volume Distribution Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Daywise Trading Volume Summary:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/dwts.png') }}" alt="DWTWS Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Volume Distribution by Day of Week:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vdbdow.png') }}" alt="VDBOW Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Monthly Trading Volume Summary:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/mtvs.png') }}" alt="MTVS Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Average Trading Volume by Month (Weekday vs Weekend):</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/atwbm.png') }}" alt="wvw Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Volume Distribution by Month:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vdbm.png') }}" alt="vdbm Output" class="img-fluid">
+        <br>
+        <br>
+        
+        <h5><b>Clusters of Volume:</b></h5>
+        <br>
+        <p><strong>Clustered the days based on their volume</strong></p>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/cov.png') }}" alt="cov Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>Daywise Distribution of Clusters:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/ddoc.png') }}" alt="ddoc Output" class="img-fluid">
+        <br>
+        <br>
+            
+        <h5><b>Monthwise Distribution of Clusters:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/mdoc.png') }}" alt="mdoc Output" class="img-fluid">
+        <br>
+        <br>
+
+        <h5><b>BTC Price vs Volume:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/bvv.png') }}" alt="btcpricevvolume Output" class="img-fluid">
+        <br>
+        <br>
+        
+        <h5><b>VIX vs Volume:</b></h5>
+        <br>
+        <img src="{{ url_for('static', filename='images/volume_analyzer/vvv.png') }}" alt="vix Output" class="img-fluid">
+        <br>
+        <br>
+
+
+
+
+
+               
+
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Utku Yücel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
