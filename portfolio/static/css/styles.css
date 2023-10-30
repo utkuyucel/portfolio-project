@@ -1,0 +1,148 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+}
+
+.header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 0;
+    text-align: center;
+    padding-top: 20px; /* Reduced vertical padding */
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-size: 2.5em; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Reduced spacing between header and subheader */
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.project-list {
+    padding: 40px 0;
+}
+
+.project-item {
+    margin-bottom: 30px;
+}
+
+.footer {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+/* Additional Styles for Cards */
+.project-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* dark gray for primary text */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header, .footer {
+    background-color: #2C3E50; /* dark blue for header/footer background */
+    color: #ecf0f1; /* off-white for header/footer text */
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Arrow Button */
+.arrow-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #2c3e50; /* Change color as needed */
+    color: #ecf0f1;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    z-index: 100; /* To ensure the button is always on top */
+}
+
+.arrow-btn:hover {
+    background-color: #34495e;
+}
+
+.arrow-icon {
+    margin-right: 5px;
+}
+
+/* Github link section */
+.github-strip {
+    background-color: #333333; /* Changing to a darker background for contrast */
+    padding: 12px 0; /* Increasing padding slightly */
+}
+
+.github-strip a {
+    text-decoration: none;
+    color: #ffffff; /* White color for contrast against dark background */
+    font-size: 1rem;
+    display: block;
+    text-align: center; 
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.github-strip i {
+    font-size: 1.2rem; /* Making the icon slightly bigger */
+    margin-right: 10px;
+    vertical-align: middle; /* Aligning it vertically centered with the text */
+}
+
+.github-strip a:hover {
+    color: #e0e0e0; /* A lighter gray for hover */
+}
+
+/* Icons */
+.social-icons {
+    margin-top: 15px; /* Adds space between your tagline and the icons */
+}
+
+.social-icons a {
+    margin: 0 10px; /* Spacing between the icons */
+    font-size: 1.5rem; /* Icon size */
+    color: inherit; /* Inherits the color of the surrounding text */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-icons a:hover {
+    color: #007BFF; /* Change to any color you want for the hover effect */
+}
+
+

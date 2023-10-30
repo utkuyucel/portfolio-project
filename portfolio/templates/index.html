@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utku Yucel | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+    <section class="header">
+        <div class="container">
+            <h1>Utku Yücel</h1>
+            <p>Data & Business Analyst | Python & SQL</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/utkuyucel" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://leetcode.com/utkuyucel/" target="_blank"><i class="fas fa-code"></i></a> <!-- LeetCode doesn't have a specific icon in FontAwesome, so we use a generic code icon -->
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Project part -->
+    <section class="project-list container my-5">
+        <h2 class="mb-4">Projects</h2>
+    
+        <div class="row">
+            <!-- Project Card 1 -->
+            <div class="col-md-4 mb-4">
+                <a href="{{ url_for('spa') }}" class="text-dark text-decoration-none project-card">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='images/spa/spa.png') }}" alt="Project 1" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Stock Performance Analyzer</b></h5>
+                            <p class="card-text">It is a Python-based tool designed to facilitate the analysis of stock performance over time. By leveraging financial data pulled from the yfinance library, this tool provides users with a visual representation of a given stock's monthly performance through various visualizations.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Add more project cards as needed -->
+    
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Utku Yücel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
