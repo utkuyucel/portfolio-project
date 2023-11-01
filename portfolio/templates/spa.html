@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
 </head>
 <body>
 
@@ -151,11 +152,7 @@
         
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Utku Yücel. All rights reserved.</p>
-        </div>
-    </footer>
+    {% include "footer.html" %}
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

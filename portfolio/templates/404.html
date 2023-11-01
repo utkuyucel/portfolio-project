@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utku Yucel | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
+</head>
+<body class = "error-page-body">
+
+    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
+        <span class="arrow-icon">←</span>
+        Back to Main Page
+    </button>
+    
+
+    <div class = "content-wrapper"> 
+        <section class="header">
+            <div class="container">
+                <h1>Utku Yücel</h1>
+                <p>Data & Business Analyst | Python & SQL</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/utkuyucel" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/utkuyucel/" target="_blank"><i class="fas fa-code"></i></a> <!-- LeetCode doesn't have a specific icon in FontAwesome, so we use a generic code icon -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- 404 Not Found Section -->
+        <section class="not-found container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h1>404</h1>
+                    <h5>Sorry, the page you're looking for cannot be found.</h5>
+                </div>
+            </div>
+        </section>    
+    </div>
+   
+    {% include "footer.html" %}
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
