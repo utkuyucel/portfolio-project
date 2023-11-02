@@ -58,40 +58,46 @@
         <img src="{{ url_for('static', filename='images/volume_analyzer/nput_output_data.png') }}" alt="Input-data Output" class="img-fluid">
         <br>
         <br>
+        <hr>
         <p>
             <strong>The ETL pipeline is structured around five primary classes:</strong>
         </p>
-        <ul>
-            <li><b>DataExtractor:</b> Equipped with various methods, this class is responsible for extracting data from external sources.</li>
-            <br>
-            <script src="https://gist.github.com/utkuyucel/e6654fbbcf0f726b4b0db0aae16e423c.js"></script>
+        
+        <h5><b>1 - DataExtractor</b></h5>
+        <p>Equipped with various methods, this class is responsible for extracting data from external sources.</p>
+        <br>
+        <script src="https://gist.github.com/utkuyucel/e6654fbbcf0f726b4b0db0aae16e423c.js"></script>
 
-            <hr>
+        <hr>
 
-            <li><b>DataTransformer:</b> This class contains a suite of methods designed to transform the data procured by the DataExtractor.</li>
-            <br>
-            <script src="https://gist.github.com/utkuyucel/b19ab6c578b0db7c273d3deee4b7d3e1.js"></script>
-            
-            <hr>
+        <h5><b>2 - DataTransformer</b></h5>
+        <p>This class contains a suite of methods designed to transform the data procured by the DataExtractor.</p>
+        <br>
+        <script src="https://gist.github.com/utkuyucel/b19ab6c578b0db7c273d3deee4b7d3e1.js"></script>
+        
+        <hr>
 
-            <li><b>DataLoader:</b> This class encompasses several methods for efficiently loading the provided data.</li>
-            <br>
-            <script src="https://gist.github.com/utkuyucel/ef193d255b06e27c125db04e1caa51e3.js"></script>
+        <h5><b>3 - DataLoader</b></h5>
+        <p>This class encompasses several methods for efficiently loading the provided data.</p>
+        <br>
+        <script src="https://gist.github.com/utkuyucel/ef193d255b06e27c125db04e1caa51e3.js"></script>
 
-            <hr>
+        <hr>
 
-            <li><b>DataAnalyzer:</b> Embedded with numerous methods, it facilitates Exploratory Data Analysis (EDA) on the available data.</li>
-            <br>
-            <script src="https://gist.github.com/utkuyucel/e72c946065c3eacaf4c4e7140a1e7fcd.js"></script>
+        <h5><b>4 - DataAnalyzer</b></h5>
+        <p>Embedded with numerous methods, it facilitates Exploratory Data Analysis (EDA) on the available data.</p>
+        <br>
+        <script src="https://gist.github.com/utkuyucel/e72c946065c3eacaf4c4e7140a1e7fcd.js"></script>
 
-            <hr>
-            
-            <li><b>DataValidator:</b> With several dedicated methods, it ensures data validation. Data will not proceed to analysis unless authenticated by this class.</li>
-            <br>
-            <script src="https://gist.github.com/utkuyucel/ae6e5aa823efd7c3994f39bcf3bb49d6.js"></script>
+        <hr>
+        
+        <h5><b>5 - DataValidator</b></h5>
+        <p>With several dedicated methods, it ensures data validation. Data will not proceed to analysis unless authenticated by this class.</p>
+        <br>
+        <script src="https://gist.github.com/utkuyucel/ae6e5aa823efd7c3994f39bcf3bb49d6.js"></script>
 
-            <hr>
-        </ul>
+        <hr>
+    
         <p>
             Purposefully designed, this project aims to address pivotal questions, such as:
         </p>

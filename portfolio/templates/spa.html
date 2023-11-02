@@ -58,43 +58,44 @@
 
         <!-- <script src="https://gist.github.com/utkuyucel/ff8f5acf62913ebbaaf8e065a80694e9.js"></script> -->
 
+        <hr>
         <br></br>
         <h5><b>Let's Explain Each Codeblock:</b></h5>
         <br></br>
 
         <h5><b>1. Import Section</b></h5>
-        <script src="https://gist.github.com/utkuyucel/663cec12077a8625796495b66038b386.js"></script>
         <p>This block imports necessary libraries and modules for data fetching, analysis, and visualization.</p>
+        <script src="https://gist.github.com/utkuyucel/663cec12077a8625796495b66038b386.js"></script>
         <br></br> 
         
         <h5><b>2. StockPerformanceAnalyzer Class Definition</b></h5>
-        <script src="https://gist.github.com/utkuyucel/a6609ca82833bb345483abee21a1c5a3.js"></script>
         <p>StockPerformanceAnalyzer class provides tools to analyze the monthly and yearly performance of a given stock.</p>
+        <script src="https://gist.github.com/utkuyucel/a6609ca82833bb345483abee21a1c5a3.js"></script>
         <br></br> 
 
         <h5><b>3. Initializer</b></h5>
-        <script src="https://gist.github.com/utkuyucel/7901a6bae46a129293fc049520656c69.js"></script>
         <p>Initializes an instance of the StockPerformanceAnalyzer class with a stock symbol and start date. It also fetches and preprocesses stock performance data.</p>
+        <script src="https://gist.github.com/utkuyucel/7901a6bae46a129293fc049520656c69.js"></script>
         <br></br> 
 
         <h5><b>4. Heatmap Visualization</b></h5>
-        <script src="https://gist.github.com/utkuyucel/0c32acc5e088724afbc983e0303d8182.js"></script>
         <p>Plots a heatmap showcasing the monthly performance of the stock over years, with performance values color-coded.</p>
+        <script src="https://gist.github.com/utkuyucel/0c32acc5e088724afbc983e0303d8182.js"></script>
         <br></br> 
 
         <h5><b>5. Histogram Visualization for Monthly and Yearly Data</b></h5>
-        <script src="https://gist.github.com/utkuyucel/eb52b9fa74a089b6429f780cef2c929f.js"></script>
         <p>These methods generate histogram plots to display the number of positive and negative performance months/years for the stock.</p>
+        <script src="https://gist.github.com/utkuyucel/eb52b9fa74a089b6429f780cef2c929f.js"></script>
         <br></br> 
 
         <h5><b>6. Helper Functions</b></h5>
-        <script src="https://gist.github.com/utkuyucel/f8d183e61ce59b8b135a49d2c246e1ec.js"></script>
         <p>These methods generate histogram plots to display the number of positive and negative performance months/years for the stock.</p>
+        <script src="https://gist.github.com/utkuyucel/f8d183e61ce59b8b135a49d2c246e1ec.js"></script>
         <br></br> 
 
         <h5><b>7. Main Execution Block</b></h5>
-        <script src="https://gist.github.com/utkuyucel/295e5de6d0b9409b7f2af5993d6168a2.js"></script>
         <p>The main execution block where an instance of the StockPerformanceAnalyzer class is created for the stock symbol "TUPRS.IS" starting from "2010-01-01". The program then calls methods to visualize the stock's monthly and yearly performance.</p>
+        <script src="https://gist.github.com/utkuyucel/295e5de6d0b9409b7f2af5993d6168a2.js"></script>
         <br></br> 
 
 
@@ -102,7 +103,6 @@
 
         <!-- Adding new codeblocks above it. -->
 
-        <hr>
         <br></br>
         <h3><b>The Output:</b></h3>
         <br></br>
@@ -112,19 +112,19 @@
         <img src="{{ url_for('static', filename='images/spa/heatmap.png') }}" alt="Heatmap Output" class="img-fluid">
         <br></br>
         <br></br>
-        <hr>
+        
         <h4><b>Monthly Histogram:</b></h4>
         <br></br>
         <img src="{{ url_for('static', filename='images/spa/performance_by_month.png') }}" alt="Monthly Histogram Output" class="img-fluid">
         <br></br>
         <br></br>
-        <hr>
+        
         <h4><b>Yearly Histogram:</b></h4>
         <br></br>
         <img src="{{ url_for('static', filename='images/spa/performance_by_year.png') }}" alt="Yearly Histogram Output" class="img-fluid">
         <br></br>
         <br></br>
-        <hr>
+        
         <h3><b>Overall Insights</b></h3>
         <br></br>
         <h5><b>1 - Seasonality in Monthly Performance</b></h5>
