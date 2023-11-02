@@ -17,6 +17,10 @@ def volume_analyzer():
     return render_template("volume_analyzer.html")
 
 
+@app.route("/exchange_clustering")
+def exchange_clustering():
+    return render_template("clustering.html")
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404

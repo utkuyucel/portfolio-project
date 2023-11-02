@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Exchange Clustering
+    </title>    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
+</head>
+<body>
+
+    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
+        <span class="arrow-icon">←</span>
+        Back to Main Page
+    </button>
+    
+    <section class="header py-4">
+        <div class="container">
+            <h1>Cryptocurrency Exchange Clustering</h1>
+            <div class="tags-section">
+                <span class="tag">Python</span>
+                <span class="tag">Statistical Analysis</span>
+                <span class="tag">Clustering</span>
+                <span class="tag">Classification</span>
+                <span class="tag">K-Means</span>
+                <span class="tag">Random Forests</span>
+                <!-- Add more tags as needed -->
+            </div>
+        </div>                
+    </section>
+    
+    <div class="github-strip">
+        <div class="container">
+            <a href="https://github.com/utkuyucel/Analyzing_volume_data/blob/main/main.py" target="_blank">
+                <i class="fab fa-github"></i> View the Project on Github
+            </a>
+        </div>
+    </div>
+
+    <!-- Will add main scheme in there. -->
+    <section class="date-section">
+        <p><i>September 23, 2023</i></p>
+    </section>
+    
+
+    
+        <!-- Main Content Section -->
+    <section class="main-content py-4">
+        <div class="container">
+            <div class="project-description">
+                <h2>Project Overview</h2>
+                <p>This project applies advanced data analysis techniques to a dataset of exchanges, each characterized by over 30 data points, to identify key patterns and provide strategic insights. Due to the sensitive nature of the data, the following is a generalized description of the approach and methodologies employed.</p>
+                
+                <h3>Key Functionalities and Process Flow:</h3>
+                <ul>
+                    <li><b>Data Preprocessing:</b> Initial cleaning of the dataset to correct numerical formats, ensuring data integrity for subsequent analysis.</li>
+                    <li><b>Weighted Ratings Calculation:</b> Computation of nuanced weighted ratings across various platforms to reflect both user sentiment and engagement levels.</li>
+                    <li><b>Advanced Clustering with K-Means:</b>
+                        <ul>
+                            <li>Employment of K-Means clustering, with manual cluster definition to fulfill specific analysis goals.</li>
+                            <li>Clusters are optimized and sorted based on three-month average visitor metrics.</li>
+                            <li>Detailed insights are provided for each cluster, highlighting distinctive features and strategic implications.</li>
+                        </ul>
+                    </li>
+                    <li><b>Feature Importance Analysis:</b> Utilization of Random Forest Classifier to evaluate the significance of each feature in the clustering process.</li>
+                    <li><b>Visualization:</b>
+                        <ul>
+                            <li>Clusters and exchanges are illustrated through a treemap visualization.</li>
+                            <li>Feature importances are plotted to convey their impact visually.</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <p>The methodologies outlined here showcase a robust approach to data analysis, balancing comprehensive preprocessing, strategic clustering, and insightful visualizations to guide data-driven decision-making.</p>
+            <br>
+            <hr>
+            <br>
+            <h3>Code Structure Overview: Four Primary Classes Defined</h3>
+            <br>
+            <h5><b>1 - DataCleaner</b></h5>
+            <p>Ensures data integrity by transforming and cleaning DataFrame inputs.</p>
+            <script src="https://gist.github.com/utkuyucel/088aa138934ab2e10318e5e66a88c856.js"></script>
+            <br>
+
+            <h5><b>2 - DataProcessor</b></h5>
+            <p>Calculates weighted metrics, optimizing DataFrame structure.</p>
+            <script src="https://gist.github.com/utkuyucel/bc7f34032463593af68a38858b91a5f1.js"></script>
+            <br>
+            
+            <h5><b>3 - ClusteringHandler</b></h5>
+            <p>Implements and refines data segmentation using KMeans clustering.</p>
+            <script src="https://gist.github.com/utkuyucel/61d922a6471584358a922f521fe53534.js"></script>
+            <br>
+
+            <h5><b>4 - Reporting</b></h5>
+            <p>Visualizes data insights and evaluates cluster performance metrics.</p>
+            <script src="https://gist.github.com/utkuyucel/b18ba04331b14aa193ec2a237b6727c7.js"></script>
+            <br>
+            
+            <h5><b>Main Function</b></h5>
+            <script src="https://gist.github.com/utkuyucel/a0ebed6e1766696ef44edd24b2decc3f.js"></script>
+            <br>
+            
+            <h3><b>Outputs</b></h3>
+            <p>Mean values for each cluster:</p>
+            <script src="https://gist.github.com/utkuyucel/b4b040722da9ebfe577a023a00dfe6ae.js"></script>
+            <br>
+        
+            
+            <h3><b>Visualizations</b></h3>
+            <br>
+            <h5><b>Feature Importances</b></h5>
+            <img src="{{ url_for('static', filename='images/clustering/bars.png') }}" alt=" Histogram Output" class="img-fluid">
+            <br>
+            <br>
+            <br>
+            <h5><b>Treemap of Exchanges (Exchange Names Censored)</b></h5>
+            <img src="{{ url_for('static', filename='images/clustering/treemap.png') }}" alt=" Treemap Output" class="img-fluid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            </div>
+        </div>
+    </section>
+    <!-- End Main Content Section -->
+
+
+    </section>
+
+    {% include "footer.html" %}
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
