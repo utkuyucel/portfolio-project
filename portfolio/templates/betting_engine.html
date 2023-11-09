@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCX321878D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LCX321878D');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betting Engine</title>    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
+</head>
+<body>
+
+    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
+        <span class="arrow-icon">←</span>
+        Back to Main Page
+    </button>
+    
+    <section class="header py-4">
+        <div class="container">
+            <h1>Betting Engine</h1>
+            <div class="tags-section">
+                <span class="tag">Python</span>
+                <span class="tag">Statistics</span>
+                <!-- Add more tags as needed -->
+            </div>
+        </div>        
+    </section>
+    
+    
+    <div class="github-strip">
+        <div class="container">
+            <a href="https://github.com/utkuyucel/betting-engine/blob/main/main.py" target="_blank">
+                <i class="fab fa-github"></i> View the Project on Github
+            </a>
+        </div>
+    </div>
+
+    <section class="date-section">
+        <p><i>November 1, 2023</i></p>
+    </section>
+
+    <!-- Inside the project-->
+    <section class="container my-5">
+        <h3><b>Betting Engine</b></h3>
+        <p>
+            This Python betting engine allows users to simulate election outcomes, offering functionality to place bets, compute odds, and determine winnings. It includes classes for tracking election bets, assessing odds, and allocating winnings post-election, encapsulating the complexities of a betting system.
+        </p>
+
+        <!-- <script src="https://gist.github.com/utkuyucel/ff8f5acf62913ebbaaf8e065a80694e9.js"></script> -->
+
+        <hr>
+        <br></br>
+        <h5><b>Sections & Definitions:</b></h5>
+        <br></br>
+
+        <h5><b>1. Import Section</b></h5>
+        <p>This block imports necessary libraries and modules for creating the betting engine</p>
+        <script src="https://gist.github.com/utkuyucel/5034fa97873f0c9c0db2c64dd939eb36.js"></script>
+        <br></br> 
+        
+        <h5><b>2. ElectionOutcome Class Definition</b></h5>
+        <p>An enumeration defining the possible winners of an election.</p>
+        <script src="https://gist.github.com/utkuyucel/e0f88f00f35988ce9f113c00c177738a.js"></script>
+        <br></br> 
+
+        <h5><b>3. Election Class Definition</b></h5>
+        <p>Represents the event being bet on, tracking total bets for each outcome.</p>
+        <script src="https://gist.github.com/utkuyucel/8bbb8545c81435b09d5b5af57606cdf2.js"></script>
+        <br></br> 
+
+        <h5><b>4. Bet Class Definition</b></h5>
+        <p> A single bet, including the bettor's identity, chosen outcome, and bet amount.</p>
+        <script src="https://gist.github.com/utkuyucel/6fc4e54280e28a57644b4d6c5a0dca8f.js"></script>
+        <br></br> 
+
+        <h5><b>5. BettingSystem</b></h5>
+        <p>Manages betting operations, calculates odds, and settles bets based on the election results.</p>
+        <script src="https://gist.github.com/utkuyucel/605da2786e0ac3b19dd411eed217a5b9.js"></script>
+        <br></br> 
+
+        <h5><b>Main Function</b></h5>
+        <script src="https://gist.github.com/utkuyucel/f42e6bb3dbc54aba71a34041154df114.js"></script>
+        <br></br> 
+
+        <h5><b>Output</b></h5>
+        <script src="https://gist.github.com/utkuyucel/9544eb8c6233c8acec38601480d7bf71.js"></script>
+        
+        <br></br> 
+
+        
+    </section>
+
+    {% include "footer.html" %}
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
