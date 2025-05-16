@@ -107,12 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 cardTitle.style.color = "";
             }
             
-            // Reset tech tags style
-            const techTags = this.querySelectorAll(".tech-tag");
-            techTags.forEach(tag => {
-                tag.style.transform = "";
-                tag.style.background = "";
-            });
+            // Tech tags have been removed
         });
     });
     

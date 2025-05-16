@@ -46,7 +46,6 @@
         <div class="container">
             <h1>Utku Yücel</h1>
             <p>Data Engineer | Python & SQL</p>
-            <div class="tagline">Transforming raw data into actionable business intelligence through innovative engineering solutions.</div>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/utkuyucel" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
@@ -54,118 +53,20 @@
             </div>
         </div>
     </section>
-    
-    <!-- About Me Section -->
-    <section class="about-section py-5 reveal">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="lead mb-4">
-                        I'm a data professional specializing in building robust data pipelines, analytics solutions, 
-                        and data-driven applications. With expertise in Python and SQL, I help organizations transform their 
-                        data into valuable insights that drive business decisions.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section class="skills-section py-5 bg-light reveal">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">Technical Skills</h2>
-            <div class="row skill-categories">
-                <div class="col-md-4 mb-4">
-                    <div class="skill-category reveal">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h4>Programming</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span>Python</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="95"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span>SQL</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skill-category reveal">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h4>Data Technologies</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span>ETL Pipelines</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Data Analysis</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skill-category reveal">
-                        <div class="skill-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4>Analytics</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span>Statistical Modeling</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Data Visualization</span>
-                                <div class="skill-level">
-                                    <div class="skill-progress" data-level="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Project part -->
     <section class="project-list container reveal">
         <h2>Featured Projects</h2>
-        <div class="section-subtitle text-center mb-4">Showcasing my data engineering and analysis expertise</div>
     
         <div class="row equal-height">
             <!-- Project Card 1 -->
             <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('spa') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <span class="tech-badge">Python</span>
                         <img src="{{ url_for('static', filename='images/spa/spa.png') }}" alt="Stock Performance Analyzer" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Stock Performance Analyzer</b></h5>
                             <p class="card-text">A sophisticated tool leveraging Python for comprehensive stock performance analysis, enabling data-driven investment decisions through visual insights.</p>
-                            <div class="project-technologies">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Data Analysis</span>
-                                <span class="tech-tag">Visualization</span>
-                            </div>
                         </div>
                         <span class="view-project">View Project</span>
                     </div>
@@ -176,16 +77,10 @@
             <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('volume_analyzer') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <span class="tech-badge">ETL</span>
                         <img src="{{ url_for('static', filename='images/volume_analyzer/volume.png') }}" alt="ETL - Volume Analyzer" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>ETL - Volume Analyzer</b></h5>
                             <p class="card-text">An advanced ETL pipeline for processing large datasets with automated clustering and regression analytics, yielding actionable business intelligence.</p>
-                            <div class="project-technologies">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">ETL</span>
-                                <span class="tech-tag">Data Pipeline</span>
-                            </div>
                         </div>
                         <span class="view-project">View Project</span>
                     </div>
@@ -196,16 +91,10 @@
             <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('exchange_clustering') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <span class="tech-badge">ML</span>
                         <img src="{{ url_for('static', filename='images/clustering/cls.png') }}" alt="Cryptocurrency Exchange Clustering" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Cryptocurrency Exchange Clustering</b></h5>
                             <p class="card-text">Strategic pattern identification through advanced clustering algorithms, uncovering hidden relationships in cryptocurrency exchange data.</p>
-                            <div class="project-technologies">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Clustering</span>
-                                <span class="tech-tag">ML</span>
-                            </div>
                         </div>
                         <span class="view-project">View Project</span>
                     </div>
@@ -216,16 +105,10 @@
             <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('betting_engine') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <span class="tech-badge">Statistics</span>
                         <img src="{{ url_for('static', filename='images/betting_engine/betting.png') }}" alt="Betting Engine" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Betting Engine</b></h5>
                             <p class="card-text">A sophisticated statistical engine implementing advanced probability models to calculate odds and simulate betting outcomes with high precision.</p>
-                            <div class="project-technologies">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Statistics</span>
-                                <span class="tech-tag">Simulation</span>
-                            </div>
                         </div>
                         <span class="view-project">View Project</span>
                     </div>
@@ -242,12 +125,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="section-title">Let's Connect</h2>
-                    <p class="lead mb-5">
-                        Interested in collaborating on a project or discussing data engineering opportunities? 
-                        Feel free to reach out!
-                    </p>
                     <div class="contact-methods reveal">
-                        <a href="mailto:contact@utkuyucel.com" class="contact-button">
+                        <a href="mailto:utkuyucel35@gmail.com" class="contact-button">
                             <i class="fas fa-envelope"></i>
                             <span>Email Me</span>
                         </a>
@@ -271,13 +150,6 @@
                 <div class="footer-logo">
                     <h3>UY</h3>
                     <p>Data Engineer</p>
-                </div>
-                <div class="footer-links">
-                    <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>

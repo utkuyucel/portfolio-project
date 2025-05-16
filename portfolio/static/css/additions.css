@@ -132,13 +132,7 @@
     margin-top: auto;
 }
 
-.tech-tag {
-    display: inline-block;
-    background-color: #f1f5f9;
-    color: #475569;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 3px 10px;
+/* Tech tags have been removed */
     border-radius: 10px;
     margin-right: 6px;
     margin-bottom: 6px;
@@ -493,21 +487,7 @@
     gap: 5px;
 }
 
-.tech-tag {
-    background: #f0f4f8;
-    color: #2c3e50;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.tech-tag:hover {
-    background: #e0e8f0;
-    transform: scale(1.05);
-}
+/* Tech tags have been removed */
 
 /* Additional section and page reveal animations */
 .reveal {
