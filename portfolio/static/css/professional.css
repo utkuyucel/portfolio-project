@@ -1,25 +1,90 @@
 /* Professional Portfolio CSS - Clean and Modern */
 
+/* Theme Variables */
+:root {
+    /* Light Theme (default) */
+    --bg-color: #ffffff;
+    --text-color: #2c3e50;
+    --text-muted: #4a5568;
+    --heading-color: #2c3e50;
+    --link-color: #3182ce;
+    --link-hover: #2c5282;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-shadow: rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: rgba(0, 0, 0, 0.08);
+    --header-bg: linear-gradient(to right, #2c3e50, #4a6d8c);
+    --header-text: #ffffff;
+    --header-text-muted: rgba(255, 255, 255, 0.9);
+    --button-bg: rgba(255, 255, 255, 0.15);
+    --button-hover: rgba(255, 255, 255, 0.25);
+    --button-text: #ffffff;
+    --footer-bg: linear-gradient(to right, #2c3e50, #4a6d8c);
+    --footer-text: #e2e8f0;
+    --footer-border: rgba(255, 255, 255, 0.1);
+    --footer-text-muted: rgba(255, 255, 255, 0.7);
+    --code-bg: #f8fafc;
+    --code-border: #e2e8f0;
+    --github-strip-bg: #24292e;
+    --github-strip-text: #ffffff;
+    --toggle-button-bg: rgba(255, 255, 255, 0.2);
+    --toggle-button-icon: #ffffff;
+    --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-color: #1a202c;
+    --text-color: #e2e8f0;
+    --text-muted: #a0aec0;
+    --heading-color: #e2e8f0;
+    --link-color: #63b3ed;
+    --link-hover: #90cdf4;
+    --card-bg: #2d3748;
+    --card-border: #4a5568;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-shadow-hover: rgba(0, 0, 0, 0.4);
+    --header-bg: linear-gradient(to right, #1a202c, #2d3748);
+    --header-text: #ffffff;
+    --header-text-muted: rgba(255, 255, 255, 0.8);
+    --button-bg: rgba(255, 255, 255, 0.1);
+    --button-hover: rgba(255, 255, 255, 0.2);
+    --button-text: #ffffff;
+    --footer-bg: linear-gradient(to right, #1a202c, #2d3748);
+    --footer-text: #e2e8f0;
+    --footer-border: rgba(255, 255, 255, 0.05);
+    --footer-text-muted: rgba(255, 255, 255, 0.6);
+    --code-bg: #2d3748;
+    --code-border: #4a5568;
+    --github-strip-bg: #1a202c;
+    --github-strip-text: #e2e8f0;
+    --toggle-button-bg: rgba(255, 255, 255, 0.1);
+    --toggle-button-icon: #ffd700;
+    --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Base Styles */
 body {
     font-family: 'Inter', 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
-    color: #2c3e50;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
     font-size: 16px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: var(--theme-transition);
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--heading-color);
     margin-bottom: 1rem;
+    transition: var(--theme-transition);
 }
 
 h1 {
@@ -33,17 +98,18 @@ h2 {
 
 p {
     margin-bottom: 1rem;
-    color: #4a5568;
+    color: var(--text-muted);
+    transition: var(--theme-transition);
 }
 
 a {
-    color: #3182ce;
+    color: var(--link-color);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #2c5282;
+    color: var(--link-hover);
 }
 
 /* Layout Components */
@@ -60,14 +126,15 @@ a:hover {
 
 /* Header Section */
 .header {
-    background: linear-gradient(to right, #2c3e50, #4a6d8c);
-    color: #ffffff;
+    background: var(--header-bg);
+    color: var(--header-text);
     padding: 5rem 0 4rem;
     position: relative;
+    transition: var(--theme-transition);
 }
 
 .header h1 {
-    color: #ffffff;
+    color: var(--header-text);
     margin: 0;
     font-weight: 700;
 }
@@ -75,7 +142,7 @@ a:hover {
 .header p {
     font-size: 1.25rem;
     margin-top: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--header-text-muted);
 }
 
 /* Social Icons */
@@ -90,14 +157,14 @@ a:hover {
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 0.75rem;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--header-text);
+    background-color: var(--button-bg);
     border-radius: 50%;
     transition: background-color 0.2s ease;
 }
 
 .social-icons a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--button-hover);
 }
 
 /* Project Section */
@@ -113,10 +180,12 @@ a:hover {
 
 .project-card .card {
     height: 100%;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--card-border);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    background-color: var(--card-bg);
+    transition: var(--theme-transition);
 }
 
 .project-card:hover {
@@ -124,7 +193,7 @@ a:hover {
 }
 
 .project-card:hover .card {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--card-shadow-hover);
 }
 
 .project-card img {
@@ -140,22 +209,26 @@ a:hover {
 .project-card .card-title {
     font-weight: 600;
     margin-bottom: 0.75rem;
+    color: var(--heading-color);
+    transition: var(--theme-transition);
 }
 
 .project-card .card-text {
-    color: #4a5568;
+    color: var(--text-muted);
     font-size: 0.95rem;
+    transition: var(--theme-transition);
 }
 
 /* GitHub Strip */
 .github-strip {
-    background-color: #24292e;
+    background-color: var(--github-strip-bg);
     padding: 0.75rem 0;
+    transition: var(--theme-transition);
 }
 
 .github-strip a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--github-strip-text);
     display: block;
     text-align: center;
     font-size: 0.95rem;
@@ -169,11 +242,12 @@ a:hover {
 
 /* Footer */
 .footer {
-    background: linear-gradient(to right, #2c3e50, #4a6d8c);
-    color: #e2e8f0;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     padding: 3rem 0 1rem;
     margin-top: auto;
     width: 100%;
+    transition: var(--theme-transition);
 }
 
 .footer-content {
@@ -185,19 +259,19 @@ a:hover {
 }
 
 .footer-info h3 {
-    color: #ffffff;
+    color: var(--header-text);
     font-weight: 700;
     margin-bottom: 0.25rem;
 }
 
 .footer-info p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--header-text-muted);
     font-size: 1rem;
     margin-bottom: 1rem;
 }
 
 .footer-contact a {
-    color: #90cdf4;
+    color: var(--link-color);
     font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
@@ -218,26 +292,26 @@ a:hover {
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--header-text);
+    background-color: var(--button-bg);
     border-radius: 50%;
     transition: background-color 0.2s ease;
 }
 
 .footer-social a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    background-color: var(--button-hover);
+    color: var(--header-text);
 }
 
 .footer-bottom {
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--footer-border);
     text-align: center;
 }
 
 .footer-bottom p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     font-size: 0.9rem;
 }
 
@@ -246,8 +320,8 @@ a:hover {
     position: absolute;
     top: 1.2rem;
     left: 1.2rem;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 0.4rem 0.7rem;
     border-radius: 20px;
@@ -264,7 +338,7 @@ a:hover {
 }
 
 .arrow-btn:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--button-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -288,8 +362,8 @@ a:hover {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--heading-color);
+    color: var(--header-text);
     border: none;
     display: flex;
     justify-content: center;
@@ -297,7 +371,7 @@ a:hover {
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 }
@@ -309,38 +383,46 @@ a:hover {
 
 /* GitHub README Styling */
 .github-readme {
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--card-border);
     border-radius: 6px;
     overflow: hidden;
+    transition: var(--theme-transition);
 }
 
 .github-readme .card-header {
-    background-color: #f8fafc;
+    background-color: var(--code-bg);
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--card-border);
+    transition: var(--theme-transition);
 }
 
 .github-readme .readme-title {
     font-size: 0.9rem;
-    color: #4a5568;
+    color: var(--text-muted);
+    transition: var(--theme-transition);
 }
 
 .github-readme .card-body {
     padding: 1.5rem;
+    background-color: var(--card-bg);
+    transition: var(--theme-transition);
 }
 
 /* Code blocks */
 pre {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
     border-radius: 4px;
     padding: 1rem;
     overflow: auto;
+    transition: var(--theme-transition);
 }
 
 code {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 0.9rem;
+    color: var(--text-color);
+    transition: var(--theme-transition);
 }
 
 /* 404 page */
@@ -351,35 +433,84 @@ code {
 
 .error-container h1 {
     font-size: 4rem;
-    color: #2c3e50;
+    color: var(--heading-color);
     margin-bottom: 1rem;
+    transition: var(--theme-transition);
 }
 
 .error-container p {
     font-size: 1.25rem;
-    color: #4a5568;
+    color: var(--text-muted);
     margin-bottom: 2rem;
+    transition: var(--theme-transition);
 }
 
 .error-container .btn {
-    background-color: #2c3e50;
-    color: #ffffff;
+    background-color: var(--heading-color);
+    color: var(--header-text);
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-weight: 500;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .error-container .btn:hover {
-    background-color: #3a546d;
+    background-color: var(--link-color);
 }
 
 .error-page-body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg-color);
+    transition: var(--theme-transition);
 }
 
 .error-page-footer {
     margin-top: auto;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--toggle-button-bg);
+    color: var(--toggle-button-icon);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+}
+
+/* When in dark mode, rotate the icon */
+[data-theme="dark"] .theme-toggle i.fa-sun {
+    display: inline-block;
+}
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    display: none;
+}
+[data-theme="light"] .theme-toggle i.fa-sun {
+    display: none;
+}
+[data-theme="light"] .theme-toggle i.fa-moon {
+    display: inline-block;
 }
