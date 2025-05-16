@@ -2,3 +2,4 @@ flask_venv/
 *.pyc
 __pycache__/
 *.pyo
+.mypy_cache/
