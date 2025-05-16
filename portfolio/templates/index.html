@@ -13,6 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Utku Yücel - Data Engineer specializing in Python, SQL and data pipeline solutions">
+    <meta name="keywords" content="data engineer, python, SQL, ETL, data analysis, portfolio">
+    <meta name="author" content="Utku Yücel">
     <title>Utku Yucel | Portfolio</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,90 +23,271 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/additions.css') }}">
     <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
-
+    <!-- Particles.js for dynamic background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+    
+    <!-- Scroll to top button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <section class="header">
+        <div id="particles-js"></div>
         <div class="container">
             <h1>Utku Yücel</h1>
             <p>Data Engineer | Python & SQL</p>
+            <div class="tagline">Transforming raw data into actionable business intelligence through innovative engineering solutions.</div>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/utkuyucel" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://leetcode.com/utkuyucel/" target="_blank"><i class="fas fa-code"></i></a> <!-- LeetCode doesn't have a specific icon in FontAwesome, so we use a generic code icon -->
+                <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/utkuyucel" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://leetcode.com/utkuyucel/" target="_blank" aria-label="LeetCode Profile"><i class="fas fa-code"></i></a>
             </div>
         </div>
     </section>
     
+    <!-- About Me Section -->
+    <section class="about-section py-5 reveal">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="lead mb-4">
+                        I'm a data professional specializing in building robust data pipelines, analytics solutions, 
+                        and data-driven applications. With expertise in Python and SQL, I help organizations transform their 
+                        data into valuable insights that drive business decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills-section py-5 bg-light reveal">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Technical Skills</h2>
+            <div class="row skill-categories">
+                <div class="col-md-4 mb-4">
+                    <div class="skill-category reveal">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Programming</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>SQL</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-category reveal">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Data Technologies</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>ETL Pipelines</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Data Analysis</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-category reveal">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Analytics</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Statistical Modeling</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Data Visualization</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Project part -->
-    <section class="project-list container my-5">
-        <h2 class="mb-4">Projects</h2>
+    <section class="project-list container reveal">
+        <h2>Featured Projects</h2>
+        <div class="section-subtitle text-center mb-4">Showcasing my data engineering and analysis expertise</div>
     
-        <div class="row">
+        <div class="row equal-height">
             <!-- Project Card 1 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('spa') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/spa/spa.png') }}" alt="Project 1" class="card-img-top">
+                        <span class="tech-badge">Python</span>
+                        <img src="{{ url_for('static', filename='images/spa/spa.png') }}" alt="Stock Performance Analyzer" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Stock Performance Analyzer</b></h5>
-                            <p class="card-text">It is a Python-based tool designed to facilitate the analysis of stock performance over time. </p>
+                            <p class="card-text">A sophisticated tool leveraging Python for comprehensive stock performance analysis, enabling data-driven investment decisions through visual insights.</p>
+                            <div class="project-technologies">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Data Analysis</span>
+                                <span class="tech-tag">Visualization</span>
+                            </div>
                         </div>
+                        <span class="view-project">View Project</span>
                     </div>
                 </a>
             </div>
 
             <!-- Project Card 2 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('volume_analyzer') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/volume_analyzer/volume.png') }}" alt="Project 1" class="card-img-top">
+                        <span class="tech-badge">ETL</span>
+                        <img src="{{ url_for('static', filename='images/volume_analyzer/volume.png') }}" alt="ETL - Volume Analyzer" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>ETL - Volume Analyzer</b></h5>
-                            <p class="card-text">This project represents a comprehensive ETL (Extract, Transform, Load) pipeline, crafted in Python, intended for the analysis, clustering, and regression computation of diverse datasets. </p>
+                            <p class="card-text">An advanced ETL pipeline for processing large datasets with automated clustering and regression analytics, yielding actionable business intelligence.</p>
+                            <div class="project-technologies">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ETL</span>
+                                <span class="tech-tag">Data Pipeline</span>
+                            </div>
                         </div>
+                        <span class="view-project">View Project</span>
                     </div>
                 </a>
             </div>
 
             <!-- Project Card 3 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('exchange_clustering') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/clustering/cls.png') }}" alt="Project 1" class="card-img-top">
+                        <span class="tech-badge">ML</span>
+                        <img src="{{ url_for('static', filename='images/clustering/cls.png') }}" alt="Cryptocurrency Exchange Clustering" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Cryptocurrency Exchange Clustering</b></h5>
-                            <p class="card-text">Strategic clustering and analysis of exchange data to derive actionable insights</p>
+                            <p class="card-text">Strategic pattern identification through advanced clustering algorithms, uncovering hidden relationships in cryptocurrency exchange data.</p>
+                            <div class="project-technologies">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Clustering</span>
+                                <span class="tech-tag">ML</span>
+                            </div>
                         </div>
+                        <span class="view-project">View Project</span>
                     </div>
                 </a>
             </div>
 
             <!-- Project Card 4 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 reveal">
                 <a href="{{ url_for('betting_engine') }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/betting_engine/betting.png') }}" alt="Project 1" class="card-img-top">
+                        <span class="tech-badge">Statistics</span>
+                        <img src="{{ url_for('static', filename='images/betting_engine/betting.png') }}" alt="Betting Engine" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><b>Betting Engine</b></h5>
-                            <p class="card-text">A betting engine for calculating the odds and settling wagers based on the outcomes of a simulated options. </p>
+                            <p class="card-text">A sophisticated statistical engine implementing advanced probability models to calculate odds and simulate betting outcomes with high precision.</p>
+                            <div class="project-technologies">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Statistics</span>
+                                <span class="tech-tag">Simulation</span>
+                            </div>
                         </div>
+                        <span class="view-project">View Project</span>
                     </div>
                 </a>
             </div>
-
-            
-    
         </div>
     </section>
     
 
+    <!-- Contact Section -->
+    <section class="contact-section py-5 reveal">
+        <div class="bg-animate"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="lead mb-5">
+                        Interested in collaborating on a project or discussing data engineering opportunities? 
+                        Feel free to reach out!
+                    </p>
+                    <div class="contact-methods reveal">
+                        <a href="mailto:contact@utkuyucel.com" class="contact-button">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank" class="contact-button">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>Connect on LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/utkuyucel" target="_blank" class="contact-button">
+                            <i class="fab fa-github"></i>
+                            <span>Explore my Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Utku Yücel. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>UY</h3>
+                    <p>Data Engineer</p>
+                </div>
+                <div class="footer-links">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/utkuyucel" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/utkuyucel/" target="_blank"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Utku Yücel. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -113,5 +297,118 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#ffffff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.4,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#ffffff",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 1.5,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": true,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.8
+                                }
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "repulse": {
+                                "distance": 100,
+                                "duration": 0.4
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+            
+            // Mark all sections as "reveal" sections for animation
+            document.querySelectorAll('section:not(.header)').forEach(section => {
+                section.classList.add('reveal');
+            });
+            
+            // Add "reveal" class to other important elements
+            document.querySelectorAll('.skill-category, .contact-methods').forEach(el => {
+                el.classList.add('reveal');
+            });
+        });
+    </script>
 </body>
 </html>
