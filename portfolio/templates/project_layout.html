@@ -15,11 +15,12 @@
     <title>{% block title %}{{ project.title }}{% endblock %} - Utku Yücel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/additions.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/professional.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
     
     <!-- Syntax highlighting for code blocks -->
@@ -33,11 +34,11 @@
 </head>
 <body>
     <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
-        <span class="arrow-icon">←</span>
+        <span class="arrow-icon"><i class="fas fa-arrow-left"></i></span>
         Back to Main Page
     </button>
     
-    <section class="header py-4">
+    <section class="header">
         <div class="container">
             <h1>{{ project.title }}</h1>
         </div>
@@ -52,13 +53,13 @@
     </div>
 
     <!-- Project Content -->
-    <section class="container my-5">
+    <section class="container section">
         <div class="row">
             <div class="col-md-12">
                 {% if readme_content %}
                 <div class="github-readme mb-4">
                     <div class="card">
-                        <div class="card-header bg-light py-2">
+                        <div class="card-header">
                             <small class="readme-title mb-0">
                                 <i class="far fa-file-alt"></i> README.md
                             </small>
@@ -70,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-5">
+                <hr class="my-4">
                 {% endif %}
                 
                 {% block content %}
@@ -82,23 +83,8 @@
 
     {% include "footer.html" %}
 
-    <script>
-        // We don't need to process markdown content here since it's already processed by the server
-        document.addEventListener('DOMContentLoaded', function() {
-            // Apply syntax highlighting to any code blocks
-            document.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightElement(block);
-            });
-            
-            // Initialize mermaid diagrams
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: 'default',
-                securityLevel: 'loose',
-                flowchart: { useMaxWidth: true }
-            });
-        });
-    </script>
+    <!-- Professional JavaScript -->
+    <script src="{{ url_for('static', filename='js/professional.js') }}"></script>
     
     {% block extra_scripts %}{% endblock %}
 </body>

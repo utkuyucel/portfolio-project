@@ -19,202 +19,58 @@
     <title>Utku Yucel | Portfolio</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/additions.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/professional.css') }}">
     <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
-    <!-- Particles.js for dynamic background -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="loader-inner"></div>
-        </div>
-    </div>
-    
     <!-- Scroll to top button -->
     <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <section class="header">
-        <div id="particles-js"></div>
         <div class="container">
             <h1>Utku Yücel</h1>
             <p>Data Engineer | Python & SQL</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/utkuyucel" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="mailto:utkuyucel35@gmail.com" aria-label="Email Me"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
     <!-- Project part -->
-    <section class="project-list container reveal">
-        <h2>Featured Projects</h2>
-    
-        <div class="row equal-height">
-            {% for project in projects %}
-            <div class="col-md-4 mb-4 reveal">
-                <a href="{{ url_for('project_detail', slug=project.slug) }}" class="text-dark text-decoration-none project-card">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>{{ project.title }}</b></h5>
-                            <p class="card-text">{{ project.description }}</p>
-                        </div>
-                        <span class="view-project">View Project</span>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    
-
-    <!-- Contact Section -->
-    <section class="contact-section py-5 reveal">
-        <div class="bg-animate"></div>
+    <section class="project-list section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <div class="contact-methods reveal">
-                        <a href="mailto:utkuyucel35@gmail.com" class="contact-button">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email Me</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank" class="contact-button">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span>Connect on LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/utkuyucel" target="_blank" class="contact-button">
-                            <i class="fab fa-github"></i>
-                            <span>Explore my Github</span>
-                        </a>
-                    </div>
+            <h2>Featured Projects</h2>
+        
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-4 mb-4">
+                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="project-card">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <p class="card-text">{{ project.description }}</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 
     {% include "footer.html" %}
     
-    <script>
-        // Initialize particles.js
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {
-                            "value": 80,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#ffffff"
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.4,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 1,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            "value": 3,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 2,
-                                "size_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": true,
-                            "distance": 150,
-                            "color": "#ffffff",
-                            "opacity": 0.2,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 1.5,
-                            "direction": "none",
-                            "random": true,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": true,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "grab"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 140,
-                                "line_linked": {
-                                    "opacity": 0.8
-                                }
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            },
-                            "repulse": {
-                                "distance": 100,
-                                "duration": 0.4
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            }
-            
-            // Mark all sections as "reveal" sections for animation
-            document.querySelectorAll('section:not(.header)').forEach(section => {
-                section.classList.add('reveal');
-            });
-            
-            // Add "reveal" class to other important elements
-            document.querySelectorAll('.skill-category, .contact-methods').forEach(el => {
-                el.classList.add('reveal');
-            });
-        });
-    </script>
+    <!-- Professional JavaScript -->
+    <script src="{{ url_for('static', filename='js/professional.js') }}"></script>
 </body>
 </html>
