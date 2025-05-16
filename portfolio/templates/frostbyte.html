@@ -1,0 +1,70 @@
+{% extends "project_layout.html" %}
+
+{% block content %}
+    <section class="container my-5">
+        <h3><b>Frostbyte - A lightweight data versioning tool</b></h3>
+        <p>
+            Frostbyte is an efficient cold storage solution for data scientists who need a lightweight way to version and manage their datasets. It offers compression, tracking, and restoration capabilities through a simple CLI interface, all without requiring any cloud dependencies.
+        </p>
+
+        <hr>
+        <br></br>
+        <h5><b>Key Features:</b></h5>
+        <br></br>
+
+        <h5><b>1. Local Version Control for Data</b></h5>
+        <p>Frostbyte tracks changes to your datasets over time, allowing you to maintain a history of modifications without relying on cloud services.</p>
+        <br></br> 
+        
+        <h5><b>2. Efficient Compression</b></h5>
+        <p>Automatically compresses datasets to minimize storage requirements while preserving data integrity.</p>
+        <br></br> 
+
+        <h5><b>3. Simple CLI Interface</b></h5>
+        <p>Designed with data scientists in mind, the intuitive command-line interface makes versioning and retrieving data straightforward.</p>
+        <br></br> 
+
+        <h5><b>4. Zero-Cloud Dependencies</b></h5>
+        <p>Operates entirely on local storage, eliminating the need for cloud services and associated costs.</p>
+        <br></br> 
+
+        <h5><b>5. Quick Dataset Recovery</b></h5>
+        <p>Easily restore datasets to previous versions with a single command, allowing you to revert changes when needed.</p>
+        <br></br> 
+
+        <h5><b>Installation</b></h5>
+        <p>Install Frostbyte using pip:</p>
+        <pre><code class="python">pip install frostbyte</code></pre>
+        <br></br> 
+
+        <h5><b>Basic Usage</b></h5>
+        <pre><code class="python">
+# Initialize a new Frostbyte repository
+frostbyte init
+
+# Add a dataset to tracking
+frostbyte add data/my_dataset.csv
+
+# Commit changes with a message
+frostbyte commit -m "Initial dataset version"
+
+# List all versions
+frostbyte log
+
+# Restore a previous version
+frostbyte restore --version v1
+        </code></pre>
+        <br></br>
+
+        <h5><b>Why Use Frostbyte?</b></h5>
+        <p>
+            Data scientists often work with large datasets that undergo numerous transformations during analysis. 
+            Frostbyte addresses the common challenge of tracking these changes without the complexity of full-featured 
+            version control systems like Git (which aren't optimized for large data files) or the expense of cloud-based 
+            solutions. With Frostbyte, you can maintain a complete history of your datasets locally, making your 
+            data science workflow more reproducible and organized.
+        </p>
+        
+        <br></br>
+    </section>
+{% endblock %}

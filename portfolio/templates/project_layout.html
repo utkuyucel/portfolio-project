@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     
+    <!-- Mermaid diagram support -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -85,6 +88,14 @@
             // Apply syntax highlighting to any code blocks
             document.querySelectorAll('pre code').forEach((block) => {
                 hljs.highlightElement(block);
+            });
+            
+            // Initialize mermaid diagrams
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose',
+                flowchart: { useMaxWidth: true }
             });
         });
     </script>

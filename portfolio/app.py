@@ -10,6 +10,15 @@ app = Flask(__name__)
 # Project data structure
 projects = [
     {
+        "id": "frostbyte",
+        "title": "Frostbyte - A lightweight data versioning tool",
+        "slug": "frostbyte",
+        "description": "Frostbyte: Efficient cold storage for data files with versioning and zero cloud dependencies. Compress, track, and restore datasets through a simple CLI designed for data scientists.",
+        "image": "frostbyte/frostbyte_card.png",
+        "template": "frostbyte.html",
+        "github": "https://github.com/utkuyucel/Frostbyte"
+    },
+    {
         "id": "spa",
         "title": "Stock Performance Analyzer",
         "slug": "stock_performance_analyzer",
@@ -101,6 +110,9 @@ def get_github_readme(repo_url):
         owner = parts[github_index + 1]
         repo = parts[github_index + 2].split('.')[0]  # Remove .git if present
         
+        # Calculate base URL for raw content (used for fixing relative image paths)
+        raw_base_url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
+        
         # Always fetch the repository's README file
         api_url = f"https://api.github.com/repos/{owner}/{repo}/readme"
         
@@ -120,6 +132,24 @@ def get_github_readme(repo_url):
                 return None
                 
             decoded_content = base64.b64decode(content).decode('utf-8')
+            
+            # Fix relative image paths by replacing them with absolute GitHub URLs
+            # This regex looks for Markdown image syntax with relative paths
+            import re
+            decoded_content = re.sub(
+                r'!\[(.*?)\]\((?!https?://)(.*?)\)', 
+                rf'![\1]({raw_base_url}\2)', 
+                decoded_content
+            )
+            
+            # Process mermaid diagrams - wrap them with special div for client-side rendering
+            # Look for mermaid code blocks and mark them for later processing
+            decoded_content = re.sub(
+                r'```mermaid\n(.*?)```',
+                r'<div class="mermaid">\n\1</div>',
+                decoded_content, 
+                flags=re.DOTALL
+            )
             
             # Convert markdown to HTML with extensions for code highlighting
             html_content = Markup(markdown.markdown(
@@ -158,10 +188,42 @@ def exchange_clustering():
 def betting_engine():
     return redirect(url_for("project_detail", slug="betting_engine"))
 
+@app.route("/frostbyte")
+def frostbyte():
+    return redirect(url_for("project_detail", slug="frostbyte"))
+
+@app.route('/mermaid-test')
+def mermaid_test():
+    with open('/home/utku/portfolio-project/mermaid_test.md', 'r') as f:
+        content = f.read()
+        
+    # Process mermaid diagrams
+    import re
+    content = re.sub(
+        r'```mermaid\n(.*?)```',
+        r'<div class="mermaid">\n\1</div>',
+        content, 
+        flags=re.DOTALL
+    )
+    
+    # Convert markdown to HTML
+    html_content = Markup(markdown.markdown(
+        content, 
+        extensions=[
+            'markdown.extensions.fenced_code',
+            'markdown.extensions.tables',
+            'markdown.extensions.codehilite',
+            'markdown.extensions.extra'
+        ],
+        output_format='html5'
+    ))
+    
+    return render_template('project_layout.html', project={'title': 'Mermaid Test'}, readme_html=html_content)
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0") 
+    app.run(host = "0.0.0.0")
