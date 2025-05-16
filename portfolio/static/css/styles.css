@@ -2,7 +2,6 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
 }
@@ -147,7 +146,6 @@ body {
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
     overflow: hidden;
-    background-color: #fff;
     position: relative;
 }
 
@@ -443,4 +441,3 @@ h1, h2, h3, h4, h5, h6 {
 .error-page-body .arrow-btn:hover {
     background-color: #34495e;
 }
-

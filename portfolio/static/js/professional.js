@@ -1,18 +1,14 @@
 // Professional Portfolio JavaScript
 document.addEventListener("DOMContentLoaded", function() {
-    // Theme toggling functionality
-    const themeToggle = document.getElementById("themeToggle");
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    
-    // Function to set the theme
-    const setTheme = (theme) => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+    // Function to set the theme to dark
+    const setDarkTheme = () => {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark'); // Keep localStorage for consistency if other parts rely on it
         
         // Update Mermaid theme if it exists
         if (typeof mermaid !== 'undefined') {
             mermaid.initialize({
-                theme: theme === 'dark' ? 'dark' : 'neutral'
+                theme: 'dark'
             });
         }
         
@@ -20,33 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const lightTheme = document.getElementById('light-highlight-theme');
         const darkTheme = document.getElementById('dark-highlight-theme');
         if (lightTheme && darkTheme) {
-            if (theme === 'dark') {
-                lightTheme.disabled = true;
-                darkTheme.disabled = false;
-            } else {
-                lightTheme.disabled = false;
-                darkTheme.disabled = true;
-            }
+            lightTheme.disabled = true;
+            darkTheme.disabled = false;
         }
     };
     
-    // Check for saved theme preference or use the system preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else {
-        const systemTheme = prefersDarkScheme.matches ? 'dark' : 'light';
-        setTheme(systemTheme);
-    }
-    
-    // Theme toggle button handler
-    if (themeToggle) {
-        themeToggle.addEventListener("click", function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        });
-    }
+    // Set dark theme by default
+    setDarkTheme();
     
     // Handle scroll-to-top button
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");

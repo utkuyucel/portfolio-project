@@ -1,39 +1,8 @@
 /* Professional Portfolio CSS - Clean and Modern */
 
 /* Theme Variables */
+/* Dark Theme (default) */
 :root {
-    /* Light Theme (default) */
-    --bg-color: #ffffff;
-    --text-color: #2c3e50;
-    --text-muted: #4a5568;
-    --heading-color: #2c3e50;
-    --link-color: #3182ce;
-    --link-hover: #2c5282;
-    --card-bg: #ffffff;
-    --card-border: #e2e8f0;
-    --card-shadow: rgba(0, 0, 0, 0.04);
-    --card-shadow-hover: rgba(0, 0, 0, 0.08);
-    --header-bg: linear-gradient(to right, #2c3e50, #4a6d8c);
-    --header-text: #ffffff;
-    --header-text-muted: rgba(255, 255, 255, 0.9);
-    --button-bg: rgba(255, 255, 255, 0.15);
-    --button-hover: rgba(255, 255, 255, 0.25);
-    --button-text: #ffffff;
-    --footer-bg: linear-gradient(to right, #2c3e50, #4a6d8c);
-    --footer-text: #e2e8f0;
-    --footer-border: rgba(255, 255, 255, 0.1);
-    --footer-text-muted: rgba(255, 255, 255, 0.7);
-    --code-bg: #f8fafc;
-    --code-border: #e2e8f0;
-    --github-strip-bg: #24292e;
-    --github-strip-text: #ffffff;
-    --toggle-button-bg: rgba(255, 255, 255, 0.2);
-    --toggle-button-icon: #ffffff;
-    --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
     --bg-color: #1a202c;
     --text-color: #e2e8f0;
     --text-muted: #a0aec0;
@@ -468,49 +437,4 @@ code {
 
 .error-page-footer {
     margin-top: auto;
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: var(--toggle-button-bg);
-    color: var(--toggle-button-icon);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-.theme-toggle:hover {
-    transform: rotate(15deg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.theme-toggle i {
-    font-size: 1.2rem;
-}
-
-/* When in dark mode, rotate the icon */
-[data-theme="dark"] .theme-toggle i.fa-sun {
-    display: inline-block;
-}
-[data-theme="dark"] .theme-toggle i.fa-moon {
-    display: none;
-}
-[data-theme="light"] .theme-toggle i.fa-sun {
-    display: none;
-}
-[data-theme="light"] .theme-toggle i.fa-moon {
-    display: inline-block;
 }
