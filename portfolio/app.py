@@ -1,29 +1,162 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, abort
+import os
+import requests
+import base64
+import markdown
+from flask import Markup
 
 app = Flask(__name__)
 
+# Project data structure
+projects = [
+    {
+        "id": "spa",
+        "title": "Stock Performance Analyzer",
+        "slug": "stock_performance_analyzer",
+        "description": "A sophisticated tool leveraging Python for comprehensive stock performance analysis, enabling data-driven investment decisions through visual insights.",
+        "image": "spa/spa.png",
+        "template": "spa.html",
+        "github": "https://github.com/utkuyucel/Stock_Heatmap_Visualization"
+    },
+    {
+        "id": "volume_analyzer",
+        "title": "ETL - Volume Analyzer",
+        "slug": "volume_analyzer",
+        "description": "An advanced ETL pipeline for processing large datasets with automated clustering and regression analytics, yielding actionable business intelligence.",
+        "image": "volume_analyzer/volume.png",
+        "template": "volume_analyzer.html",
+        "github": "https://github.com/utkuyucel/Analyzing_volume_data"
+    },
+    {
+        "id": "clustering",
+        "title": "Cryptocurrency Exchange Clustering",
+        "slug": "exchange_clustering",
+        "description": "Strategic pattern identification through advanced clustering algorithms, uncovering hidden relationships in cryptocurrency exchange data.",
+        "image": "clustering/cls.png",
+        "template": "clustering.html",
+        "github": "https://github.com/utkuyucel/exchange_clustering"
+    },
+    {
+        "id": "betting_engine",
+        "title": "Betting Engine",
+        "slug": "betting_engine",
+        "description": "A sophisticated statistical engine implementing advanced probability models to calculate odds and simulate betting outcomes with high precision.",
+        "image": "betting_engine/betting.png",
+        "template": "betting_engine.html",
+        "github": "https://github.com/utkuyucel/betting-engine"
+    }
+]
+
+# Create a lookup dictionary for quick access to project data
+project_lookup = {project["slug"]: project for project in projects}
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", projects=projects)
+
+@app.route("/project/<slug>")
+def project_detail(slug):
+    # Look up the project by slug
+    if slug not in project_lookup:
+        abort(404)
+    
+    project = project_lookup[slug]
+    
+    # Try to fetch README content if GitHub URL exists
+    readme_content = None
+    if project.get("github"):
+        # Fetch the repository's README directly using the API
+        readme_content = get_github_readme(project["github"])
+    
+    return render_template(
+        project["template"], 
+        project=project,
+        readme_content=readme_content
+    )
 
 
+
+# Function to fetch README content from GitHub
+def get_github_readme(repo_url):
+    """
+    Fetch the README.md content from a GitHub repository
+    
+    Args:
+        repo_url: The GitHub repository URL (e.g., https://github.com/username/repo)
+    
+    Returns:
+        HTML content of the README or None if not found
+    """
+    try:
+        # Extract owner and repo from URL
+        parts = repo_url.rstrip('/').split('/')
+        if 'github.com' not in parts:
+            return None
+            
+        # Find the index of 'github.com' in the URL parts
+        github_index = parts.index('github.com')
+        if github_index + 2 >= len(parts):
+            return None
+            
+        owner = parts[github_index + 1]
+        repo = parts[github_index + 2].split('.')[0]  # Remove .git if present
+        
+        # Always fetch the repository's README file
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/readme"
+        
+        # Make the request with appropriate headers
+        headers = {}
+        # Add GitHub token if available (for higher rate limits)
+        github_token = os.environ.get('GITHUB_TOKEN')
+        if github_token:
+            headers['Authorization'] = f'token {github_token}'
+            
+        response = requests.get(api_url, headers=headers)
+        
+        if response.status_code == 200:
+            # Get content and decode from base64
+            content = response.json().get('content', '')
+            if not content:
+                return None
+                
+            decoded_content = base64.b64decode(content).decode('utf-8')
+            
+            # Convert markdown to HTML with extensions for code highlighting
+            html_content = Markup(markdown.markdown(
+                decoded_content, 
+                extensions=[
+                    'markdown.extensions.fenced_code',
+                    'markdown.extensions.tables',
+                    'markdown.extensions.codehilite',
+                    'markdown.extensions.extra'
+                ],
+                output_format='html5'
+            ))
+            return html_content
+        else:
+            print(f"Failed to fetch README. Status code: {response.status_code}")
+            print(f"Response: {response.text}")
+            return None
+    except Exception as e:
+        print(f"Error fetching README: {str(e)}")
+        return None
+
+# Legacy routes for backward compatibility
 @app.route("/stock_performance_analyzer")
 def spa():
-    return render_template("spa.html")
-
+    return redirect(url_for("project_detail", slug="stock_performance_analyzer"))
 
 @app.route("/volume_analyzer")
 def volume_analyzer():
-    return render_template("volume_analyzer.html")
-
+    return redirect(url_for("project_detail", slug="volume_analyzer"))
 
 @app.route("/exchange_clustering")
 def exchange_clustering():
-    return render_template("clustering.html")
+    return redirect(url_for("project_detail", slug="exchange_clustering"))
 
 @app.route("/betting_engine")
 def betting_engine():
-    return render_template("betting_engine.html")
+    return redirect(url_for("project_detail", slug="betting_engine"))
 
 @app.errorhandler(404)
 def page_not_found(error):

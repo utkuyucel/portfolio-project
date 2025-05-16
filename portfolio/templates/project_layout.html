@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCX321878D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LCX321878D');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ project.title }}{% endblock %} - Utku Yücel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/additions.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
+    
+    <!-- Syntax highlighting for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
+        <span class="arrow-icon">←</span>
+        Back to Main Page
+    </button>
+    
+    <section class="header py-4">
+        <div class="container">
+            <h1>{{ project.title }}</h1>
+        </div>
+    </section>
+    
+    <div class="github-strip">
+        <div class="container">
+            <a href="{{ project.github }}" target="_blank">
+                <i class="fab fa-github"></i> View the Project on Github
+            </a>
+        </div>
+    </div>
+
+    <!-- Project Content -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-12">
+                {% if readme_content %}
+                <div class="github-readme mb-4">
+                    <div class="card">
+                        <div class="card-header bg-light py-2">
+                            <small class="readme-title mb-0">
+                                <i class="far fa-file-alt"></i> README.md
+                            </small>
+                        </div>
+                        <div class="card-body">
+                            <div class="readme-content">
+                                {{ readme_content|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-5">
+                {% endif %}
+                
+                {% block content %}
+                <!-- Default content will be replaced by specific project templates -->
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+    {% include "footer.html" %}
+
+    <script>
+        // We don't need to process markdown content here since it's already processed by the server
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply syntax highlighting to any code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+    
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

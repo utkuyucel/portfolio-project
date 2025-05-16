@@ -59,61 +59,20 @@
         <h2>Featured Projects</h2>
     
         <div class="row equal-height">
-            <!-- Project Card 1 -->
+            {% for project in projects %}
             <div class="col-md-4 mb-4 reveal">
-                <a href="{{ url_for('spa') }}" class="text-dark text-decoration-none project-card">
+                <a href="{{ url_for('project_detail', slug=project.slug) }}" class="text-dark text-decoration-none project-card">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/spa/spa.png') }}" alt="Stock Performance Analyzer" class="card-img-top">
+                        <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title"><b>Stock Performance Analyzer</b></h5>
-                            <p class="card-text">A sophisticated tool leveraging Python for comprehensive stock performance analysis, enabling data-driven investment decisions through visual insights.</p>
+                            <h5 class="card-title"><b>{{ project.title }}</b></h5>
+                            <p class="card-text">{{ project.description }}</p>
                         </div>
                         <span class="view-project">View Project</span>
                     </div>
                 </a>
             </div>
-
-            <!-- Project Card 2 -->
-            <div class="col-md-4 mb-4 reveal">
-                <a href="{{ url_for('volume_analyzer') }}" class="text-dark text-decoration-none project-card">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='images/volume_analyzer/volume.png') }}" alt="ETL - Volume Analyzer" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>ETL - Volume Analyzer</b></h5>
-                            <p class="card-text">An advanced ETL pipeline for processing large datasets with automated clustering and regression analytics, yielding actionable business intelligence.</p>
-                        </div>
-                        <span class="view-project">View Project</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Project Card 3 -->
-            <div class="col-md-4 mb-4 reveal">
-                <a href="{{ url_for('exchange_clustering') }}" class="text-dark text-decoration-none project-card">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='images/clustering/cls.png') }}" alt="Cryptocurrency Exchange Clustering" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Cryptocurrency Exchange Clustering</b></h5>
-                            <p class="card-text">Strategic pattern identification through advanced clustering algorithms, uncovering hidden relationships in cryptocurrency exchange data.</p>
-                        </div>
-                        <span class="view-project">View Project</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Project Card 4 -->
-            <div class="col-md-4 mb-4 reveal">
-                <a href="{{ url_for('betting_engine') }}" class="text-dark text-decoration-none project-card">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='images/betting_engine/betting.png') }}" alt="Betting Engine" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Betting Engine</b></h5>
-                            <p class="card-text">A sophisticated statistical engine implementing advanced probability models to calculate odds and simulate betting outcomes with high precision.</p>
-                        </div>
-                        <span class="view-project">View Project</span>
-                    </div>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </section>
     
@@ -136,7 +95,7 @@
                         </a>
                         <a href="https://github.com/utkuyucel" target="_blank" class="contact-button">
                             <i class="fab fa-github"></i>
-                            <span>Explore my Code</span>
+                            <span>Explore my Github</span>
                         </a>
                     </div>
                 </div>
@@ -144,31 +103,7 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>UY</h3>
-                    <p>Data Engineer</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/utku-yucel/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/utkuyucel" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://leetcode.com/utkuyucel/" target="_blank"><i class="fas fa-code"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Utku Yücel. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    {% include "footer.html" %}
     
     <script>
         // Initialize particles.js

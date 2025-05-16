@@ -6,6 +6,8 @@ Frozen-Flask==0.18
 importlib-metadata==6.8.0
 itsdangerous>=2.0
 Jinja2==3.1.4
+Markdown==3.5.1
 MarkupSafe>=2.0
+requests==2.31.0
 Werkzeug==3.0.3
 zipp==3.17.0

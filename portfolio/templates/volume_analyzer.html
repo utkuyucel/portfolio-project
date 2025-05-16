@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCX321878D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+{% extends "project_layout.html" %}
 
-        gtag('config', 'G-LCX321878D');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETL - Volume Analyzer</title>    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" href="{{ url_for("static", filename = "images/favicon.png") }}" type="image/png">
-</head>
-<body>
-
-    <button class="arrow-btn" onclick="location.href='{{ url_for('index') }}';">
-        <span class="arrow-icon">←</span>
-        Back to Main Page
-    </button>
-    
-    <section class="header py-4">
-        <div class="container">
-            <h1>ETL - Volume Analyzer</h1>
-        </div>        
-    </section>
-    
-    <div class="github-strip">
-        <div class="container">
-            <a href="https://github.com/utkuyucel/Analyzing_volume_data/blob/main/main.py" target="_blank">
-                <i class="fab fa-github"></i> View the Project on Github
-            </a>
-        </div>
-    </div>
-
-    <!-- Inside the project-->
+{% block content %}
     <section class="container my-5">
         <h3><b>ETL - Volume Analyzer</b></h3>
         <p>
@@ -206,13 +164,4 @@
 
     </section>
 
-    {% include "footer.html" %}
-
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-</body>
-</html>
+{% endblock %}
