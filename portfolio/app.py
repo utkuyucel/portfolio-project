@@ -10,6 +10,15 @@ app = Flask(__name__)
 # Project data structure
 projects = [
     {
+        "id": "url_shortener",
+        "title": "URL Shortener",
+        "slug": "url_shortener",
+        "description": "An advanced URL shortener with custom slugs, analytics, and QR code generation. Built with Python and Flask for high-performance URL redirection.",
+        "image": "url_shortener/url_shortener.png",
+        "template": "url_shortener.html",
+        "github": "https://github.com/utkuyucel/url-shortener"
+    },
+    {
         "id": "frostbyte",
         "title": "Frostbyte - A lightweight data versioning tool",
         "slug": "frostbyte",
@@ -191,6 +200,10 @@ def betting_engine():
 @app.route("/frostbyte")
 def frostbyte():
     return redirect(url_for("project_detail", slug="frostbyte"))
+
+@app.route("/url_shortener")
+def url_shortener():
+    return redirect(url_for("project_detail", slug="url_shortener"))
 
 @app.route('/mermaid-test')
 def mermaid_test():

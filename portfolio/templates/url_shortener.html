@@ -1,0 +1,12 @@
+{% extends "project_layout.html" %}
+
+{% block content %}
+    <!-- This template is intentionally minimal as it relies on README content from GitHub -->
+    {% if not readme_content %}
+    <div class="container my-5">
+        <div class="alert alert-info">
+            <p>No README content available from the GitHub repository. Please check the repository link.</p>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
