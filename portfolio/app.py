@@ -10,15 +10,6 @@ app = Flask(__name__)
 # Project data structure
 projects = [
     {
-        "id": "url_shortener",
-        "title": "URL Shortener",
-        "slug": "url_shortener",
-        "description": "An advanced URL shortener with custom slugs, analytics, and QR code generation. Built with Python and Flask for high-performance URL redirection.",
-        "image": "url_shortener/url_shortener.png",
-        "template": "url_shortener.html",
-        "github": "https://github.com/utkuyucel/url-shortener"
-    },
-    {
         "id": "frostbyte",
         "title": "Frostbyte - A lightweight data versioning tool",
         "slug": "frostbyte",
@@ -44,6 +35,15 @@ projects = [
         "image": "volume_analyzer/volume.png",
         "template": "volume_analyzer.html",
         "github": "https://github.com/utkuyucel/Analyzing_volume_data"
+    },
+    {
+        "id": "url_shortener",
+        "title": "URL Shortener",
+        "slug": "url_shortener",
+        "description": "An advanced URL shortener with custom slugs",
+        "image": "url_shortener/url_shortener.png",
+        "template": "url_shortener.html",
+        "github": "https://github.com/utkuyucel/url-shortener"
     },
     {
         "id": "clustering",
