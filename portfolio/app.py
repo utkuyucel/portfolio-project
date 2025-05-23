@@ -19,6 +19,15 @@ projects = [
         "github": "https://github.com/utkuyucel/Frostbyte"
     },
     {
+        "id": "fundratetracker",
+        "title": "Fed Fund Rate Tracker",
+        "slug": "fundratetracker",
+        "description": "A comprehensive financial analytics platform for tracking and analyzing Federal Reserve interest rate changes",
+        "image": "fundratetracker/fundratetracker.png",
+        "template": "fundratetracker.html",
+        "github": "https://github.com/utkuyucel/fundratetracker"
+    },
+    {
         "id": "spa",
         "title": "Stock Performance Analyzer",
         "slug": "stock_performance_analyzer",
@@ -204,6 +213,10 @@ def frostbyte():
 @app.route("/url_shortener")
 def url_shortener():
     return redirect(url_for("project_detail", slug="url_shortener"))
+
+@app.route("/fundratetracker")
+def fundratetracker():
+    return redirect(url_for("project_detail", slug="fundratetracker"))
 
 @app.route('/mermaid-test')
 def mermaid_test():
