@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, abort
+from flask import Flask, render_template, redirect, url_for, abort, send_from_directory
 import os
 import requests
 import base64
@@ -101,8 +101,6 @@ def project_detail(slug):
         readme_content=readme_content
     )
 
-
-
 # Function to fetch README content from GitHub
 def get_github_readme(repo_url):
     """
@@ -189,6 +187,15 @@ def get_github_readme(repo_url):
         print(f"Error fetching README: {str(e)}")
         return None
 
+# SEO and web crawler management routes
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.static_folder, 'robots.txt', mimetype='text/plain')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return send_from_directory(app.static_folder, 'sitemap.xml', mimetype='application/xml')
+
 # Legacy routes for backward compatibility
 @app.route("/stock_performance_analyzer")
 def spa():
@@ -249,7 +256,6 @@ def mermaid_test():
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
-
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0")

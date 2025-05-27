@@ -1,0 +1,95 @@
+# Robots.txt for Portfolio Website
+# Optimized for maximum visibility and discoverability
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Search engines - Full access for best SEO
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# AI/LLM crawlers - Allow for potential exposure and referrals
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 2
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers - Fast access for sharing
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: SlackBot
+Allow: /
+
+User-agent: DiscordBot
+Allow: /
+
+# Professional network crawlers
+User-agent: LinkedInBot
+Allow: /
+
+# Portfolio/career sites crawlers
+User-agent: AngelListBot
+Allow: /
+
+User-agent: IndeedBot
+Allow: /
+
+# Only restrict aggressive scrapers that don't add value
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: /static/sitemap.xml
+
+# Host directive
+Host: https://utkuyucel.com
