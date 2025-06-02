@@ -45,11 +45,17 @@
         </div>
     </section>
 
-    <!-- Project part -->
-    <section class="project-list section">
+    <!-- Tab Navigation -->
+    <div class="container">
+        <nav class="content-tabs">
+            <button class="tab-btn active" data-tab="projects">Featured Projects</button>
+            <button class="tab-btn" data-tab="designs">System Designs</button>
+        </nav>
+    </div>
+
+    <!-- Projects Tab -->
+    <section id="projects" class="project-list section tab-content active">
         <div class="container">
-            <h2>Featured Projects</h2>
-        
             <div class="row">
                 {% for project in projects %}
                 <div class="col-md-4 mb-4">
@@ -59,6 +65,26 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ project.title }}</h5>
                                 <p class="card-text">{{ project.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- System Designs Tab -->
+    <section id="designs" class="project-list section tab-content">
+        <div class="container">
+            <div class="row">
+                {% for design in designs %}
+                <div class="col-md-4 mb-4">
+                    <a href="{{ design.github }}" target="_blank" class="project-card">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='images/' + design.image) }}" alt="{{ design.title }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ design.title }}</h5>
                             </div>
                         </div>
                     </a>

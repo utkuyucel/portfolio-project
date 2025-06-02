@@ -74,12 +74,27 @@ projects = [
     }
 ]
 
+# Data Infrastructure Designs data structure
+designs = [
+    {
+        "id": "influencer_ranking",
+        "title": "Influencer Ranking System Design",
+        "slug": "influencer_ranking",
+        "image": "data_designs/influencer_ranking.png",
+        "template": "data_designs/influencer_ranking.html",
+        "github": "https://github.com/utkuyucel/data-infra-designs/blob/main/influencer_ranking_system_design.md"
+    }
+]
+
 # Create a lookup dictionary for quick access to project data
 project_lookup = {project["slug"]: project for project in projects}
 
+# Create a lookup dictionary for quick access to design data  
+design_lookup = {design["slug"]: design for design in designs}
+
 @app.route("/")
 def index():
-    return render_template("index.html", projects=projects)
+    return render_template("index.html", projects=projects, designs=designs)
 
 @app.route("/project/<slug>")
 def project_detail(slug):
@@ -101,18 +116,82 @@ def project_detail(slug):
         readme_content=readme_content
     )
 
+@app.route("/design/<slug>")
+def design_detail(slug):
+    # Look up the design by slug
+    if slug not in design_lookup:
+        abort(404)
+    
+    design = design_lookup[slug]
+    
+    # Redirect directly to the GitHub URL
+    return redirect(design["github"])  # Directly redirect to GitHub link
+
 # Function to fetch README content from GitHub
 def get_github_readme(repo_url):
     """
-    Fetch the README.md content from a GitHub repository
+    Fetch the README.md content from a GitHub repository or direct markdown file
     
     Args:
-        repo_url: The GitHub repository URL (e.g., https://github.com/username/repo)
+        repo_url: The GitHub repository URL or direct file URL
     
     Returns:
-        HTML content of the README or None if not found
+        HTML content of the README/markdown or None if not found
     """
     try:
+        # Check if this is a direct file URL (contains /blob/)
+        if '/blob/' in repo_url:
+            # Convert blob URL to raw URL
+            raw_url = repo_url.replace('/blob/', '/').replace('github.com', 'raw.githubusercontent.com')
+            
+            # Make direct request to raw file
+            response = requests.get(raw_url)
+            
+            if response.status_code == 200:
+                decoded_content = response.text
+                
+                # Extract owner/repo for relative image paths
+                parts = repo_url.split('/')
+                github_index = parts.index('github.com')
+                owner = parts[github_index + 1]
+                repo = parts[github_index + 2]
+                branch = parts[github_index + 4]  # usually 'main' or 'master'
+                
+                raw_base_url = f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/"
+                
+                # Fix relative image paths
+                import re
+                decoded_content = re.sub(
+                    r'!\[(.*?)\]\((?!https?://)(.*?)\)', 
+                    rf'![\1]({raw_base_url}\2)', 
+                    decoded_content
+                )
+                
+                # Process mermaid diagrams
+                decoded_content = re.sub(
+                    r'```mermaid\n(.*?)```',
+                    r'<div class="mermaid">\n\1</div>',
+                    decoded_content, 
+                    flags=re.DOTALL
+                )
+                
+                # Convert markdown to HTML
+                html_content = Markup(markdown.markdown(
+                    decoded_content, 
+                    extensions=[
+                        'markdown.extensions.fenced_code',
+                        'markdown.extensions.tables',
+                        'markdown.extensions.codehilite',
+                        'markdown.extensions.extra'
+                    ],
+                    output_format='html5'
+                ))
+                return html_content
+            else:
+                print(f"Failed to fetch file. Status code: {response.status_code}")
+                return None
+        
+        # Original README fetching logic for repository URLs
         # Extract owner and repo from URL
         parts = repo_url.rstrip('/').split('/')
         if 'github.com' not in parts:
