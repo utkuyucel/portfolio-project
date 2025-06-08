@@ -50,6 +50,7 @@
         <nav class="content-tabs">
             <button class="tab-btn active" data-tab="projects">Featured Projects</button>
             <button class="tab-btn" data-tab="designs">System Designs</button>
+            <button class="tab-btn" data-tab="about">About Me</button>
         </nav>
     </div>
 
@@ -90,6 +91,87 @@
                     </a>
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Tab -->
+    <section id="about" class="about-section section tab-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="experience-timeline">
+                        <!-- Buluttan Experience -->
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company-info">
+                                    <h3 class="company-name">Buluttan</h3>
+                                    <p class="location">Istanbul, Turkey</p>
+                                </div>
+                                <div class="duration">
+                                    <span class="period">FEBRUARY 2024 - JUNE 2025</span>
+                                    <span class="length">(1 Year 4 months)</span>
+                                </div>
+                            </div>
+                            <div class="position">
+                                <h4 class="job-title">Data Engineer</h4>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li><strong>Developed End-to-End Data Pipelines:</strong> Engineered robust ELT/ETL pipelines using custom Python extractors, transformers, and loaders written entirely from scratch, orchestrated with Bruin (dbt-like), ensuring reliable data ingestion and transformation. Automated recurring pipeline tasks with Bash; version-controlled with Git and deployed on Linux.</li>
+                                    
+                                    <li><strong>Architected & Scaled Data Platform:</strong> Designed and implemented a Medallion-based Data Warehouse and Lakehouse from scratch using BigQuery and GCS, scaling infrastructure capacity and processing capabilities from gigabytes level to terabytes level.</li>
+                                    
+                                    <li><strong>Led API Integrations & Data Delivery:</strong> Spearheaded API integrations for data sourcing and delivered tiered downstream data models to fulfill the analytical needs of Data Science and other teams.</li>
+                                    
+                                    <li><strong>Operated in High-Impact Environment:</strong> Managed pipeline health, maintenance, and development in a fast-paced, international english-speaking team environment, utilizing Grafana for monitoring and BigQuery SQL for data processing.</li>
+                                </ul>
+                                <div class="skills-tags">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">BigQuery</span>
+                                    <span class="skill-tag">GCS</span>
+                                    <span class="skill-tag">Bruin</span>
+                                    <span class="skill-tag">ETL/ELT</span>
+                                    <span class="skill-tag">Grafana</span>
+                                    <span class="skill-tag">Linux</span>
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">Bash</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bitlo Experience -->
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company-info">
+                                    <h3 class="company-name">Bitlo</h3>
+                                    <p class="location">Istanbul, Turkey</p>
+                                </div>
+                                <div class="duration">
+                                    <span class="period">JULY 2022 - FEBRUARY 2024</span>
+                                    <span class="length">(1 Year 10 Months)</span>
+                                </div>
+                            </div>
+                            <div class="position">
+                                <h4 class="job-title">Data / Business Analyst</h4>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li><strong>Data Analysis & Insights:</strong> Utilized Python and SQL skills to extract insights from complex data sets, effectively addressed the root causes of business problems while considering the broader context.</li>
+                                    
+                                    <li><strong>Strategic Data Implementation:</strong> Developed and implemented data collection and analysis strategies that align with business objectives, reinforced the company's data-driven approach and delivered impactful results.</li>
+                                </ul>
+                                <div class="skills-tags">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">SQL</span>
+                                    <span class="skill-tag">Data Analysis</span>
+                                    <span class="skill-tag">Business Intelligence</span>
+                                    <span class="skill-tag">Data Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
