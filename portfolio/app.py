@@ -63,6 +63,15 @@ PROJECTS = [
         github="https://github.com/utkuyucel/fundratetracker"
     ),
     Project(
+        id="ibb-traffic-prediction",
+        title="Traffic Prediction for IBB",
+        slug="ibbtrafficprediction",
+        description="A comprehensive traffic prediction system for Istanbul using real-time data collection, machine learning models, and API services for traffic condition analysis and forecasting.",
+        image="ibb-traffic-prediction/traffic.png",
+        template="traffic-prediction.html", 
+        github="https://github.com/utkuyucel/ibb-traffic-prediction"
+    ),
+    Project(
         id="spa",
         title="Stock Performance Analyzer",
         slug="stock_performance_analyzer",
@@ -297,7 +306,7 @@ def sitemap_xml():
 # Legacy redirect routes for backward compatibility
 LEGACY_ROUTES = [
     "stock_performance_analyzer", "volume_analyzer", "exchange_clustering",
-    "betting_engine", "frostbyte", "url_shortener", "fundratetracker"
+    "betting_engine", "frostbyte", "url_shortener", "fundratetracker", "ibbtrafficprediction"
 ]
 
 def create_legacy_redirect(slug: str):
