@@ -31,6 +31,7 @@ class Project:
     image: str
     template: str
     github: str
+    keywords: list
 
 @dataclass(frozen=True) 
 class Design:
@@ -51,7 +52,8 @@ PROJECTS = [
         description="Frostbyte: Efficient cold storage for data files with versioning and zero cloud dependencies. Compress, track, and restore datasets through a simple CLI designed for data scientists.",
         image="frostbyte/frostbyte_card.png",
         template="frostbyte.html",
-        github="https://github.com/utkuyucel/Frostbyte"
+        github="https://github.com/utkuyucel/Frostbyte",
+        keywords=["Python", "CLI", "Data Versioning"]
     ),
     Project(
         id="fundratetracker",
@@ -60,7 +62,8 @@ PROJECTS = [
         description="A comprehensive financial analytics platform for tracking and analyzing Federal Reserve interest rate changes",
         image="fundratetracker/fundratetracker.png",
         template="fundratetracker.html", 
-        github="https://github.com/utkuyucel/fundratetracker"
+        github="https://github.com/utkuyucel/fundratetracker",
+        keywords=["Python", "API", "ELT", "Business Intelligence"]
     ),
     Project(
         id="ibb-traffic-prediction",
@@ -69,7 +72,8 @@ PROJECTS = [
         description="A comprehensive traffic prediction system for Istanbul using real-time data collection, machine learning models, and API services for traffic condition analysis and forecasting.",
         image="ibb-traffic-prediction/traffic.png",
         template="traffic-prediction.html", 
-        github="https://github.com/utkuyucel/ibb-traffic-prediction"
+        github="https://github.com/utkuyucel/ibb-traffic-prediction",
+        keywords=["Python", "Machine Learning", "API", "ETL"]
     ),
     Project(
         id="spa",
@@ -78,7 +82,8 @@ PROJECTS = [
         description="A sophisticated tool leveraging Python for comprehensive stock performance analysis, enabling data-driven investment decisions through visual insights.",
         image="spa/spa.png",
         template="spa.html",
-        github="https://github.com/utkuyucel/Stock_Heatmap_Visualization"
+        github="https://github.com/utkuyucel/Stock_Heatmap_Visualization",
+        keywords=["Python", "Financial Analytics", "Data Visualization", "Business Intelligence"]
     ),
     Project(
         id="volume_analyzer", 
@@ -87,7 +92,8 @@ PROJECTS = [
         description="An advanced ETL pipeline for processing large datasets with automated clustering and regression analytics, yielding actionable business intelligence.",
         image="volume_analyzer/volume.png",
         template="volume_analyzer.html",
-        github="https://github.com/utkuyucel/Analyzing_volume_data"
+        github="https://github.com/utkuyucel/Analyzing_volume_data",
+        keywords=["Python", "ETL", "Data Engineering", "Business Intelligence"]
     ),
     Project(
         id="url_shortener",
@@ -96,7 +102,8 @@ PROJECTS = [
         description="An advanced URL shortener with custom slugs",
         image="url_shortener/url_shortener.png",
         template="url_shortener.html",
-        github="https://github.com/utkuyucel/url-shortener"
+        github="https://github.com/utkuyucel/url-shortener",
+        keywords=["Python", "Flask", "API", "Web Development"]
     ),
     Project(
         id="clustering",
@@ -105,7 +112,8 @@ PROJECTS = [
         description="Strategic pattern identification through advanced clustering algorithms, uncovering hidden relationships in cryptocurrency exchange data.",
         image="clustering/cls.png",
         template="clustering.html",
-        github="https://github.com/utkuyucel/exchange_clustering"
+        github="https://github.com/utkuyucel/exchange_clustering",
+        keywords=["Python", "Machine Learning", "Data Analysis", "Financial Analytics"]
     ),
     Project(
         id="betting_engine",
@@ -114,7 +122,8 @@ PROJECTS = [
         description="A sophisticated statistical engine implementing advanced probability models to calculate odds and simulate betting outcomes with high precision.",
         image="betting_engine/betting.png",
         template="betting_engine.html",
-        github="https://github.com/utkuyucel/betting-engine"
+        github="https://github.com/utkuyucel/betting-engine",
+        keywords=["Python", "Statistics", "Mathematical Modeling", "Data Analysis"]
     )
 ]
 

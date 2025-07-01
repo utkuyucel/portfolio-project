@@ -173,6 +173,9 @@ a:hover {
 
 .project-card .card-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-card .card-title {
@@ -185,7 +188,46 @@ a:hover {
 .project-card .card-text {
     color: var(--text-muted);
     font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
     transition: var(--theme-transition);
+}
+
+/* Project Keywords/Tags */
+.project-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(99, 179, 237, 0.15);
+}
+
+.project-keyword {
+    background: rgba(99, 179, 237, 0.08);
+    color: var(--link-color);
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(99, 179, 237, 0.2);
+    transition: all 0.3s ease;
+    letter-spacing: 0.25px;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+.project-keyword:hover {
+    background: rgba(99, 179, 237, 0.15);
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(99, 179, 237, 0.15);
+}
+
+.project-card:hover .project-keyword {
+    opacity: 1;
+    background: rgba(99, 179, 237, 0.12);
+    border-color: rgba(99, 179, 237, 0.3);
 }
 
 /* GitHub Strip */
@@ -793,6 +835,16 @@ code {
     .skill-tag {
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
+    }
+    
+    /* Mobile responsiveness for project keywords */
+    .project-keywords {
+        gap: 0.3rem;
+    }
+    
+    .project-keyword {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
     }
 }
 
