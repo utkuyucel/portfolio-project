@@ -66,6 +66,16 @@ PROJECTS = [
         keywords=["Python", "API", "ELT", "Business Intelligence"]
     ),
     Project(
+        id="earthquake_tracker",
+        title="Earthquake Tracker",
+        slug="earthquake_tracker",
+        description="A real-time seismic data monitoring system that processes earthquake information through automated ELT pipelines, storing and analyzing geological data in PostgreSQL on AWS RDS for comprehensive earthquake tracking and reporting.",
+        image="earthquake_tracker/earthquake_tracker.png",
+        template="earthquake_tracker.html",
+        github="https://github.com/utkuyucel/earthquake-tracker",
+        keywords=["Python", "ELT", "SQL", "AWS RDS", "PostgreSQL"]
+    ),
+    Project(
         id="ibb-traffic-prediction",
         title="Traffic Prediction for IBB",
         slug="ibbtrafficprediction",
@@ -315,7 +325,8 @@ def sitemap_xml():
 # Legacy redirect routes for backward compatibility
 LEGACY_ROUTES = [
     "stock_performance_analyzer", "volume_analyzer", "exchange_clustering",
-    "betting_engine", "frostbyte", "url_shortener", "fundratetracker", "ibbtrafficprediction"
+    "betting_engine", "frostbyte", "url_shortener", "fundratetracker", 
+    "ibbtrafficprediction", "earthquake_tracker"
 ]
 
 def create_legacy_redirect(slug: str):
