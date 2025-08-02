@@ -39,6 +39,7 @@ class Design:
     id: str
     title: str
     slug: str
+    description: str
     image: str
     template: str
     github: str
@@ -143,6 +144,7 @@ DESIGNS = [
         id="influencer_ranking",
         title="Influencer Ranking System Design", 
         slug="influencer_ranking",
+        description="A comprehensive system architecture for ranking and analyzing social media influencers across multiple platforms, featuring real-time data ingestion, ML-powered scoring algorithms, and scalable data processing pipelines.",
         image="data_designs/influencer_ranking.png",
         template="data_designs/influencer_ranking.html",
         github="https://github.com/utkuyucel/data-infra-designs/blob/main/influencer_ranking_system_design.md"
