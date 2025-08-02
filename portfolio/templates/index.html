@@ -86,11 +86,21 @@
             <div class="row">
                 {% for design in designs %}
                 <div class="col-md-4 mb-4">
-                    <a href="{{ design.github }}" target="_blank" class="project-card">
+                    <a href="{{ design.github }}" target="_blank" class="design-card">
                         <div class="card">
+                            <div class="design-badge">
+                                <i class="fas fa-sitemap"></i>
+                                <span>System Design</span>
+                            </div>
                             <img src="{{ url_for('static', filename='images/' + design.image) }}" alt="{{ design.title }}" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{ design.title }}</h5>
+                                <p class="card-text">{{ design.description }}</p>
+                                <div class="design-link">
+                                    <i class="fab fa-github"></i>
+                                    <span>View on GitHub</span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
