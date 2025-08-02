@@ -537,6 +537,167 @@ code {
     padding: 2rem 0 4rem 0;
 }
 
+/* Currently Working At Section */
+.current-work-section {
+    margin-bottom: 3rem;
+}
+
+.current-work-item {
+    background-color: var(--card-bg);
+    border: 2px solid var(--link-color);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 179, 237, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.current-work-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--link-color), var(--link-hover));
+}
+
+.current-work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.current-work-item .company-info h3.company-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0;
+    transition: var(--theme-transition);
+}
+
+.current-work-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, rgba(99, 179, 237, 0.15), rgba(99, 179, 237, 0.05));
+    border: 1px solid rgba(99, 179, 237, 0.3);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--link-color);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(99, 179, 237, 0.2);
+}
+
+.current-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--link-color);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(99, 179, 237, 0.7);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.1);
+        box-shadow: 0 0 0 4px rgba(99, 179, 237, 0);
+    }
+}
+
+.current-text {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.current-work-item .company-info .location {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0.25rem 0 0 0;
+    transition: var(--theme-transition);
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+}
+
+.available-status {
+    background: linear-gradient(135deg, #10b981, #047857);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+    animation: pulse-available 2s infinite;
+}
+
+.current-status {
+    background: linear-gradient(135deg, var(--link-color), var(--link-hover));
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(99, 179, 237, 0.3);
+    animation: pulse-current 2s infinite;
+}
+
+@keyframes pulse-available {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes pulse-current {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+.current-work-item .position {
+    margin-bottom: 1.5rem;
+}
+
+.current-work-item .position .job-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--code-bg), rgba(99, 179, 237, 0.15));
+    border-left: 5px solid var(--link-color);
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.5px;
+}
+
+.current-work-details {
+    margin-top: 1.5rem;
+}
+
+.current-work-details p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: var(--theme-transition);
+}
+
 .experience-timeline {
     position: relative;
     padding-left: 2rem;
@@ -761,6 +922,38 @@ code {
 
 /* Responsive Design for About Section */
 @media (max-width: 768px) {
+    .current-work-section {
+        margin-bottom: 2rem;
+    }
+    
+    .current-work-item {
+        padding: 1.5rem;
+    }
+    
+    .current-work-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+    
+    .current-work-item .company-info h3.company-name {
+        font-size: 1.3rem;
+    }
+    
+    .current-work-item .position .job-title {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .current-work-details p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
     .experience-timeline {
         padding-left: 1rem;
     }
