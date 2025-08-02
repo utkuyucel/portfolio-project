@@ -762,34 +762,60 @@ code {
 .current-work-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    background: rgba(99, 179, 237, 0.08);
-    padding: 0.2rem 0.5rem;
-    border-radius: 8px;
-    margin-bottom: 0.3rem;
-    font-size: 0.7rem;
-    font-weight: 500;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
     color: var(--link-color);
-    border: 1px solid rgba(99, 179, 237, 0.15);
+    background: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    animation: current-text-blink 2s ease-in-out infinite;
 }
 
 .current-dot {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background: var(--link-color);
     border-radius: 50%;
-    animation: simple-pulse 3s ease-in-out infinite;
+    animation: current-blink 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(99, 179, 237, 0.4);
 }
 
-@keyframes simple-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+@keyframes current-blink {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(99, 179, 237, 0.6);
+    }
+    50% { 
+        opacity: 0.3; 
+        transform: scale(0.8);
+        box-shadow: 0 0 4px rgba(99, 179, 237, 0.2);
+    }
+}
+
+@keyframes current-text-blink {
+    0%, 100% { 
+        opacity: 1;
+    }
+    50% { 
+        opacity: 0.4;
+    }
 }
 
 .current-text {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    text-transform: lowercase;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.current-work-badge:hover .current-text {
+    color: var(--link-color);
 }
 
 .current-work-item .company-info .location {
