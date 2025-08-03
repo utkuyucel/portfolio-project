@@ -57,6 +57,16 @@ PROJECTS = [
         keywords=["Python", "CLI", "Data Versioning"]
     ),
     Project(
+        id="catchme",
+        title="Catchme - A CDC Pipeline",
+        slug="catchme",
+        description="A CDC pipeline to sync data between two databases in realtime.",
+        image="catchme/catchme.png",
+        template="catchme.html", 
+        github="https://github.com/utkuyucel/Catchme",
+        keywords=["Python", "Kafka", "CDC", "Debezium"]
+    ),
+    Project(
         id="fundratetracker",
         title="Fed Fund Rate Tracker",
         slug="fundratetracker",
@@ -327,7 +337,7 @@ def sitemap_xml():
 # Legacy redirect routes for backward compatibility
 LEGACY_ROUTES = [
     "stock_performance_analyzer", "volume_analyzer", "exchange_clustering",
-    "betting_engine", "frostbyte", "url_shortener", "fundratetracker", 
+    "betting_engine", "frostbyte", "catchme", "url_shortener", "fundratetracker", 
     "ibbtrafficprediction", "earthquake_tracker"
 ]
 
